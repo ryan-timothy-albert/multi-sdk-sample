@@ -1,0 +1,28 @@
+speakeasyVersion: 1.285.1
+sources: {}
+targets: {}
+workflow:
+    workflowVersion: 1.0.0
+    speakeasyVersion: latest
+    sources:
+        petstore:
+            inputs:
+                - location: https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/examples/v3.0/petstore.yaml
+            registry:
+                location: registry.speakeasyapi.dev/ryan-local/ryan-local/petstore
+    targets:
+        first-target:
+            target: go
+            source: petstore
+            output: go
+        second-target:
+            target: python
+            source: petstore
+            output: py
+            publish:
+                pypi:
+                    token: $pypi_token
+        third-target:
+            target: typescript
+            source: petstore
+            output: ts
