@@ -5,8 +5,8 @@ management:
   docVersion: 1.0.0
   speakeasyVersion: 1.285.6
   generationVersion: 2.326.3
-  releaseVersion: 0.0.5
-  configChecksum: 4777ffad07babb7d11871997b0515192
+  releaseVersion: 0.0.6
+  configChecksum: 080b829053f2742266bf45f2cb90fc7b
   repoURL: https://github.com/ryan-timothy-albert/multi-sdk-sample.git
   repoSubDirectory: py
   installationURL: https://github.com/ryan-timothy-albert/multi-sdk-sample.git#subdirectory=py
