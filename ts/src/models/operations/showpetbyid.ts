@@ -26,11 +26,7 @@ export type ShowPetByIdResponse = {
 
 /** @internal */
 export namespace ShowPetByIdRequest$ {
-    export type Inbound = {
-        petId: string;
-    };
-
-    export const inboundSchema: z.ZodType<ShowPetByIdRequest, z.ZodTypeDef, Inbound> = z
+    export const inboundSchema: z.ZodType<ShowPetByIdRequest, z.ZodTypeDef, unknown> = z
         .object({
             petId: z.string(),
         })
@@ -57,13 +53,7 @@ export namespace ShowPetByIdRequest$ {
 
 /** @internal */
 export namespace ShowPetByIdResponse$ {
-    export type Inbound = {
-        HttpMeta: components.HTTPMetadata$.Inbound;
-        Pet?: components.Pet$.Inbound | undefined;
-        Error?: components.ErrorT$.Inbound | undefined;
-    };
-
-    export const inboundSchema: z.ZodType<ShowPetByIdResponse, z.ZodTypeDef, Inbound> = z
+    export const inboundSchema: z.ZodType<ShowPetByIdResponse, z.ZodTypeDef, unknown> = z
         .object({
             HttpMeta: components.HTTPMetadata$.inboundSchema,
             Pet: components.Pet$.inboundSchema.optional(),

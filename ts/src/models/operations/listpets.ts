@@ -27,11 +27,7 @@ export type ListPetsResponse = {
 
 /** @internal */
 export namespace ListPetsRequest$ {
-    export type Inbound = {
-        limit?: number | undefined;
-    };
-
-    export const inboundSchema: z.ZodType<ListPetsRequest, z.ZodTypeDef, Inbound> = z
+    export const inboundSchema: z.ZodType<ListPetsRequest, z.ZodTypeDef, unknown> = z
         .object({
             limit: z.number().int().optional(),
         })
@@ -58,14 +54,7 @@ export namespace ListPetsRequest$ {
 
 /** @internal */
 export namespace ListPetsResponse$ {
-    export type Inbound = {
-        HttpMeta: components.HTTPMetadata$.Inbound;
-        Pets?: Array<components.Pet$.Inbound> | undefined;
-        Error?: components.ErrorT$.Inbound | undefined;
-        Headers: Record<string, Array<string>>;
-    };
-
-    export const inboundSchema: z.ZodType<ListPetsResponse, z.ZodTypeDef, Inbound> = z
+    export const inboundSchema: z.ZodType<ListPetsResponse, z.ZodTypeDef, unknown> = z
         .object({
             HttpMeta: components.HTTPMetadata$.inboundSchema,
             Pets: z.array(components.Pet$.inboundSchema).optional(),

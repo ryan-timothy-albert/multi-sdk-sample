@@ -12,13 +12,7 @@ export type Pet = {
 
 /** @internal */
 export namespace Pet$ {
-    export type Inbound = {
-        id: number;
-        name: string;
-        tag?: string | undefined;
-    };
-
-    export const inboundSchema: z.ZodType<Pet, z.ZodTypeDef, Inbound> = z
+    export const inboundSchema: z.ZodType<Pet, z.ZodTypeDef, unknown> = z
         .object({
             id: z.number().int(),
             name: z.string(),
