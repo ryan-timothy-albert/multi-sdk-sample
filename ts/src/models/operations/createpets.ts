@@ -15,12 +15,7 @@ export type CreatePetsResponse = {
 
 /** @internal */
 export namespace CreatePetsResponse$ {
-    export type Inbound = {
-        HttpMeta: components.HTTPMetadata$.Inbound;
-        Error?: components.ErrorT$.Inbound | undefined;
-    };
-
-    export const inboundSchema: z.ZodType<CreatePetsResponse, z.ZodTypeDef, Inbound> = z
+    export const inboundSchema: z.ZodType<CreatePetsResponse, z.ZodTypeDef, unknown> = z
         .object({
             HttpMeta: components.HTTPMetadata$.inboundSchema,
             Error: components.ErrorT$.inboundSchema.optional(),

@@ -11,12 +11,7 @@ export type ErrorT = {
 
 /** @internal */
 export namespace ErrorT$ {
-    export type Inbound = {
-        code: number;
-        message: string;
-    };
-
-    export const inboundSchema: z.ZodType<ErrorT, z.ZodTypeDef, Inbound> = z
+    export const inboundSchema: z.ZodType<ErrorT, z.ZodTypeDef, unknown> = z
         .object({
             code: z.number().int(),
             message: z.string(),

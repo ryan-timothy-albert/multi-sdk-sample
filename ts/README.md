@@ -22,13 +22,13 @@ It has been generated successfully based on your OpenAPI spec. However, it is no
 ### NPM
 
 ```bash
-npm add https://gitpkg.now.sh/ryan-timothy-albert/multi-sdk-sample/ts
+npm add openapi
 ```
 
 ### Yarn
 
 ```bash
-yarn add https://gitpkg.now.sh/ryan-timothy-albert/multi-sdk-sample/ts
+yarn add openapi
 ```
 <!-- End SDK Installation [installation] -->
 
