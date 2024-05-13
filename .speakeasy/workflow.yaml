@@ -22,3 +22,6 @@ targets:
         target: typescript
         source: petstore
         output: ts
+        publish:
+            npm:
+                token: $npm_token
