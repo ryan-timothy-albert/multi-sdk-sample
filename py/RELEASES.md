@@ -59,3 +59,13 @@ Based on:
 - [python v0.0.6] py
 ### Releases
 - [PyPI v0.0.6] https://pypi.org/project/openapi/0.0.6 - py
+
+## 2024-05-13 18:05:57
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.286.2 (2.329.0) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v0.0.7] py
+### Releases
+- [PyPI v0.0.7] https://pypi.org/project/openapi/0.0.7 - py
