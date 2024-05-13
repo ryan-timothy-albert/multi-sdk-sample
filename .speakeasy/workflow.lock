@@ -1,4 +1,4 @@
-speakeasyVersion: 1.286.2
+speakeasyVersion: 1.286.3
 sources: {}
 targets: {}
 workflow:
@@ -26,3 +26,6 @@ workflow:
             target: typescript
             source: petstore
             output: ts
+            publish:
+                npm:
+                    token: $npm_token

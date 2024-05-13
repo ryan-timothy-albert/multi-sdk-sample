@@ -3,10 +3,10 @@ id: bec1a8ce-6d87-480a-87e4-4d5233eefa3b
 management:
   docChecksum: 1bdb7a6f8bf3995d4b40475228403253
   docVersion: 1.0.0
-  speakeasyVersion: 1.286.2
+  speakeasyVersion: 1.286.3
   generationVersion: 2.329.0
-  releaseVersion: 0.0.7
-  configChecksum: c7f8e0817e1389e95be0c026b94b1801
+  releaseVersion: 0.0.8
+  configChecksum: 9f69fd665003be48b2c452ce669d6d7b
   repoURL: https://github.com/ryan-timothy-albert/multi-sdk-sample.git
   repoSubDirectory: py
   installationURL: https://github.com/ryan-timothy-albert/multi-sdk-sample.git#subdirectory=py
