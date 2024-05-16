@@ -29,3 +29,13 @@ Based on:
 - [go v0.0.3] go
 ### Releases
 - [Go v0.0.3] https://github.com/ryan-timothy-albert/multi-sdk-sample/releases/tag/go/v0.0.3 - go
+
+## 2024-05-16 22:49:32
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.292.1 (2.332.4) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [go v0.0.4] ./go
+### Releases
+- [Go v0.0.4] https://github.com/ryan-timothy-albert/multi-sdk-sample/releases/tag/./go/v0.0.4 - ./go
