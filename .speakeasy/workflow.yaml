@@ -10,7 +10,7 @@ targets:
     first-target:
         target: go
         source: petstore
-        output: ./go
+        output: go
     second-target:
         target: python
         source: petstore
