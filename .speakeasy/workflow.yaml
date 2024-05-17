@@ -5,7 +5,7 @@ sources:
         inputs:
             - location: https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/examples/v3.0/petstore.yaml
         registry:
-            location: registry.speakeasyapi.dev/ryan-local/ryan-local/petstore
+            location: registry.speakeasyapi.dev/ryan-local/ryan-telemetry/petstore
 targets:
     first-target:
         target: go
