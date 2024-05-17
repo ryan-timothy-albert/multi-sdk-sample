@@ -3,10 +3,10 @@ id: aa3cba97-ebdd-4d31-b4e4-c95d045e0ba8
 management:
   docChecksum: 1bdb7a6f8bf3995d4b40475228403253
   docVersion: 1.0.0
-  speakeasyVersion: 1.286.3
-  generationVersion: 2.329.0
-  releaseVersion: 0.0.5
-  configChecksum: 79d5b242ca4b50ba506fbc1c076b95ed
+  speakeasyVersion: 1.293.0
+  generationVersion: 2.332.4
+  releaseVersion: 0.0.6
+  configChecksum: 99d3992ca4187d9ee6b95e96cb7d9368
   repoURL: https://github.com/ryan-timothy-albert/multi-sdk-sample.git
   repoSubDirectory: go
   installationURL: https://github.com/ryan-timothy-albert/multi-sdk-sample/go
