@@ -5,8 +5,8 @@ management:
   docVersion: 1.0.0
   speakeasyVersion: 1.286.3
   generationVersion: 2.329.0
-  releaseVersion: 0.0.3
-  configChecksum: c8c93b946c6f12dfb1b8304111a56f1e
+  releaseVersion: 0.0.4
+  configChecksum: d129cdda5dd75aecab642d9ba661fc8f
   repoURL: https://github.com/ryan-timothy-albert/multi-sdk-sample.git
   repoSubDirectory: ts
   installationURL: https://gitpkg.now.sh/ryan-timothy-albert/multi-sdk-sample/ts
