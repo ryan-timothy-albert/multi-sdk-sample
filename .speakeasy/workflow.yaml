@@ -8,7 +8,7 @@ sources:
             location: registry.speakeasyapi.dev/ryan-local/ryan-telemetry/petstore
 targets:
     first-target:
-        target: gsdfdso
+        target: go
         source: petstore
         output: go
     second-target:
