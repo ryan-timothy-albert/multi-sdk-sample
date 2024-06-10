@@ -11,32 +11,18 @@ export type ErrorT = {
 
 /** @internal */
 export namespace ErrorT$ {
-    export const inboundSchema: z.ZodType<ErrorT, z.ZodTypeDef, unknown> = z
-        .object({
-            code: z.number().int(),
-            message: z.string(),
-        })
-        .transform((v) => {
-            return {
-                code: v.code,
-                message: v.message,
-            };
-        });
+    export const inboundSchema: z.ZodType<ErrorT, z.ZodTypeDef, unknown> = z.object({
+        code: z.number().int(),
+        message: z.string(),
+    });
 
     export type Outbound = {
         code: number;
         message: string;
     };
 
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, ErrorT> = z
-        .object({
-            code: z.number().int(),
-            message: z.string(),
-        })
-        .transform((v) => {
-            return {
-                code: v.code,
-                message: v.message,
-            };
-        });
+    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, ErrorT> = z.object({
+        code: z.number().int(),
+        message: z.string(),
+    });
 }

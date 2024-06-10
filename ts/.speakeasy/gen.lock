@@ -3,10 +3,10 @@ id: f4be10ce-8651-4157-98c6-d75e2342372f
 management:
   docChecksum: 1bdb7a6f8bf3995d4b40475228403253
   docVersion: 1.0.0
-  speakeasyVersion: 1.286.3
-  generationVersion: 2.329.0
-  releaseVersion: 0.0.4
-  configChecksum: d129cdda5dd75aecab642d9ba661fc8f
+  speakeasyVersion: 1.300.1
+  generationVersion: 2.339.1
+  releaseVersion: 0.0.5
+  configChecksum: 760f45d2271effab01099d87b9db8285
   repoURL: https://github.com/ryan-timothy-albert/multi-sdk-sample.git
   repoSubDirectory: ts
   installationURL: https://gitpkg.now.sh/ryan-timothy-albert/multi-sdk-sample/ts
@@ -14,7 +14,7 @@ management:
 features:
   typescript:
     additionalDependencies: 0.1.0
-    core: 3.9.4
+    core: 3.9.12
     flattening: 2.81.1
     globalSecurityCallbacks: 0.1.0
     globalServerURLs: 2.82.4
@@ -33,6 +33,8 @@ generatedFiles:
   - src/lib/config.ts
   - src/lib/encodings.ts
   - src/lib/http.ts
+  - src/lib/is-plain-object.ts
+  - src/lib/primitives.ts
   - src/lib/retries.ts
   - src/lib/schemas.ts
   - src/lib/sdks.ts
@@ -42,6 +44,7 @@ generatedFiles:
   - src/models/errors/sdkerror.ts
   - src/models/errors/sdkvalidationerror.ts
   - src/types/blobs.ts
+  - src/types/enums.ts
   - src/types/index.ts
   - src/types/operations.ts
   - src/types/rfcdate.ts
