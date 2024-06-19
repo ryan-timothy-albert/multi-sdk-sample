@@ -1,4 +1,4 @@
-speakeasyVersion: 1.293.0
+speakeasyVersion: 1.308.2
 sources:
     petstore:
         sourceNamespace: petstore
@@ -14,6 +14,12 @@ targets:
         sourceRevisionDigest: sha256:22dea4fa269cfc90ef29c704b6a25e91601d47b45da74b25f6f8550d09740bf7
         sourceBlobDigest: sha256:0988cc3ebcf0b14954c082c37c08f8a965b0ec72781ffd459a9d4e105519f1da
         outLocation: go
+    third-target:
+        source: petstore
+        sourceNamespace: petstore
+        sourceRevisionDigest: sha256:22dea4fa269cfc90ef29c704b6a25e91601d47b45da74b25f6f8550d09740bf7
+        sourceBlobDigest: sha256:0988cc3ebcf0b14954c082c37c08f8a965b0ec72781ffd459a9d4e105519f1da
+        outLocation: ts
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest

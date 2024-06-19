@@ -12,19 +12,11 @@ export type Pet = {
 
 /** @internal */
 export namespace Pet$ {
-    export const inboundSchema: z.ZodType<Pet, z.ZodTypeDef, unknown> = z
-        .object({
-            id: z.number().int(),
-            name: z.string(),
-            tag: z.string().optional(),
-        })
-        .transform((v) => {
-            return {
-                id: v.id,
-                name: v.name,
-                ...(v.tag === undefined ? null : { tag: v.tag }),
-            };
-        });
+    export const inboundSchema: z.ZodType<Pet, z.ZodTypeDef, unknown> = z.object({
+        id: z.number().int(),
+        name: z.string(),
+        tag: z.string().optional(),
+    });
 
     export type Outbound = {
         id: number;
@@ -32,17 +24,9 @@ export namespace Pet$ {
         tag?: string | undefined;
     };
 
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, Pet> = z
-        .object({
-            id: z.number().int(),
-            name: z.string(),
-            tag: z.string().optional(),
-        })
-        .transform((v) => {
-            return {
-                id: v.id,
-                name: v.name,
-                ...(v.tag === undefined ? null : { tag: v.tag }),
-            };
-        });
+    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, Pet> = z.object({
+        id: z.number().int(),
+        name: z.string(),
+        tag: z.string().optional(),
+    });
 }
