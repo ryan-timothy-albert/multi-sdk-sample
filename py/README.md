@@ -34,6 +34,7 @@ import sdk
 
 s = sdk.SDK()
 
+
 res = s.pets.list_pets(limit=21453)
 
 if res.pets is not None:
@@ -73,6 +74,7 @@ s = sdk.SDK()
 res = None
 try:
     res = s.pets.list_pets(limit=21453)
+
 except errors.SDKError as e:
     # handle exception
     raise(e)
@@ -104,6 +106,7 @@ s = sdk.SDK(
     server_idx=0,
 )
 
+
 res = s.pets.list_pets(limit=21453)
 
 if res.pets is not None:
@@ -122,6 +125,7 @@ import sdk
 s = sdk.SDK(
     server_url="http://petstore.swagger.io/v1",
 )
+
 
 res = s.pets.list_pets(limit=21453)
 

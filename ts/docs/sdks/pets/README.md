@@ -39,7 +39,7 @@ run();
 
 ### Response
 
-**Promise<[operations.ListPetsResponse](../../models/operations/listpetsresponse.md)>**
+**Promise\<[operations.ListPetsResponse](../../models/operations/listpetsresponse.md)\>**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |
@@ -81,7 +81,7 @@ run();
 
 ### Response
 
-**Promise<[operations.CreatePetsResponse](../../models/operations/createpetsresponse.md)>**
+**Promise\<[operations.CreatePetsResponse](../../models/operations/createpetsresponse.md)\>**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |
@@ -120,7 +120,7 @@ run();
 
 ### Response
 
-**Promise<[operations.ShowPetByIdResponse](../../models/operations/showpetbyidresponse.md)>**
+**Promise\<[operations.ShowPetByIdResponse](../../models/operations/showpetbyidresponse.md)\>**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |

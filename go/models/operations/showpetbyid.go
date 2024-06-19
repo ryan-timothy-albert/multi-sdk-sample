@@ -19,7 +19,7 @@ func (o *ShowPetByIDRequest) GetPetID() string {
 }
 
 type ShowPetByIDResponse struct {
-	HTTPMeta components.HTTPMetadata
+	HTTPMeta components.HTTPMetadata `json:"-"`
 	// Expected response to a valid request
 	Pet *components.Pet
 	// unexpected error

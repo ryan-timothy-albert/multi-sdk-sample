@@ -24,9 +24,7 @@ import(
 
 func main() {
     s := openapi.New()
-
     var limit *int = openapi.Int(21453)
-    
     ctx := context.Background()
     res, err := s.Pets.ListPets(ctx, limit)
     if err != nil {
@@ -71,12 +69,10 @@ import(
 
 func main() {
     s := openapi.New()
-
     request := components.Pet{
         ID: 596804,
         Name: "<value>",
     }
-    
     ctx := context.Background()
     res, err := s.Pets.CreatePets(ctx, request)
     if err != nil {
@@ -120,9 +116,7 @@ import(
 
 func main() {
     s := openapi.New()
-
     var petID string = "<value>"
-    
     ctx := context.Background()
     res, err := s.Pets.ShowPetByID(ctx, petID)
     if err != nil {

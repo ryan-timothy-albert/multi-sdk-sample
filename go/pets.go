@@ -133,6 +133,7 @@ func (s *Pets) ListPets(ctx context.Context, limit *int) (*operations.ListPetsRe
 	}
 
 	return res, nil
+
 }
 
 // CreatePets - Create a pet
@@ -227,6 +228,7 @@ func (s *Pets) CreatePets(ctx context.Context, request components.Pet) (*operati
 	}
 
 	return res, nil
+
 }
 
 // ShowPetByID - Info for a specific pet
@@ -330,4 +332,5 @@ func (s *Pets) ShowPetByID(ctx context.Context, petID string) (*operations.ShowP
 	}
 
 	return res, nil
+
 }

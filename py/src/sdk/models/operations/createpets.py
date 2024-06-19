@@ -4,12 +4,14 @@ from __future__ import annotations
 import dataclasses
 from ...models.components import error as components_error
 from ...models.components import httpmetadata as components_httpmetadata
+from dataclasses_json import Undefined, dataclass_json
 from typing import Optional
 
 
+@dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
 class CreatePetsResponse:
-    http_meta: components_httpmetadata.HTTPMetadata = dataclasses.field()
+    http_meta: components_httpmetadata.HTTPMetadata = dataclasses.field(metadata={'dataclasses_json': { 'exclude': lambda f: True }})
     error: Optional[components_error.Error] = dataclasses.field(default=None)
     r"""unexpected error"""
     
