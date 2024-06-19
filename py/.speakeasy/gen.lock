@@ -3,10 +3,10 @@ id: bec1a8ce-6d87-480a-87e4-4d5233eefa3b
 management:
   docChecksum: 1bdb7a6f8bf3995d4b40475228403253
   docVersion: 1.0.0
-  speakeasyVersion: 1.286.3
-  generationVersion: 2.329.0
-  releaseVersion: 0.0.8
-  configChecksum: 9f69fd665003be48b2c452ce669d6d7b
+  speakeasyVersion: 1.310.0
+  generationVersion: 2.347.4
+  releaseVersion: 0.0.9
+  configChecksum: 327bc8eaca7e71f36849e86622fcaf39
   repoURL: https://github.com/ryan-timothy-albert/multi-sdk-sample.git
   repoSubDirectory: py
   installationURL: https://github.com/ryan-timothy-albert/multi-sdk-sample.git#subdirectory=py
@@ -14,7 +14,7 @@ management:
 features:
   python:
     additionalDependencies: 0.1.0
-    core: 4.6.7
+    core: 4.6.11
     flattening: 2.81.1
     globalSecurityCallbacks: 0.1.0
     globalServerURLs: 2.82.2
@@ -26,6 +26,7 @@ generatedFiles:
   - src/sdk/sdk.py
   - py.typed
   - pylintrc
+  - scripts/publish.sh
   - setup.py
   - src/sdk/__init__.py
   - src/sdk/utils/__init__.py

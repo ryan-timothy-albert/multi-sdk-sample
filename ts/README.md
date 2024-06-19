@@ -25,10 +25,25 @@ It has been generated successfully based on your OpenAPI spec. However, it is no
 npm add openapi
 ```
 
+### PNPM
+
+```bash
+pnpm add openapi
+```
+
+### Bun
+
+```bash
+bun add openapi
+```
+
 ### Yarn
 
 ```bash
-yarn add openapi
+yarn add openapi zod
+
+# Note that Yarn does not install peer dependencies automatically. You will need
+# to install zod as shown above.
 ```
 <!-- End SDK Installation [installation] -->
 
@@ -84,7 +99,7 @@ Validation errors can also occur when either method arguments or data returned f
 
 ```typescript
 import { SDK } from "openapi";
-import * as errors from "openapi/models/errors";
+import { SDKValidationError } from "openapi/models/errors";
 
 const sdk = new SDK();
 
@@ -94,7 +109,7 @@ async function run() {
         result = await sdk.pets.listPets(21453);
     } catch (err) {
         switch (true) {
-            case err instanceof errors.SDKValidationError: {
+            case err instanceof SDKValidationError: {
                 // Validation errors can be pretty-printed
                 console.error(err.pretty());
                 // Raw value may also be inspected

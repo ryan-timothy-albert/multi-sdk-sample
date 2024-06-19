@@ -5,6 +5,7 @@ import dataclasses
 from ...models.components import error as components_error
 from ...models.components import httpmetadata as components_httpmetadata
 from ...models.components import pet as components_pet
+from dataclasses_json import Undefined, dataclass_json
 from typing import Dict, List, Optional
 
 
@@ -16,9 +17,10 @@ class ListPetsRequest:
 
 
 
+@dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
 class ListPetsResponse:
-    http_meta: components_httpmetadata.HTTPMetadata = dataclasses.field()
+    http_meta: components_httpmetadata.HTTPMetadata = dataclasses.field(metadata={'dataclasses_json': { 'exclude': lambda f: True }})
     headers: Dict[str, List[str]] = dataclasses.field()
     pets: Optional[List[components_pet.Pet]] = dataclasses.field(default=None)
     r"""A paged array of pets"""

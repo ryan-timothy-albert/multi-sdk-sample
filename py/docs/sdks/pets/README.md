@@ -18,6 +18,7 @@ import sdk
 
 s = sdk.SDK()
 
+
 res = s.pets.list_pets(limit=21453)
 
 if res.pets is not None:
@@ -53,6 +54,7 @@ import sdk
 from sdk.models import components
 
 s = sdk.SDK()
+
 
 res = s.pets.create_pets(request=components.Pet(
     id=596804,
@@ -91,6 +93,7 @@ Info for a specific pet
 import sdk
 
 s = sdk.SDK()
+
 
 res = s.pets.show_pet_by_id(pet_id='<value>')
 
