@@ -19,7 +19,7 @@ func (o *ListPetsRequest) GetLimit() *int {
 }
 
 type ListPetsResponse struct {
-	HTTPMeta components.HTTPMetadata
+	HTTPMeta components.HTTPMetadata `json:"-"`
 	// A paged array of pets
 	Pets []components.Pet
 	// unexpected error

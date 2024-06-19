@@ -7,7 +7,7 @@ import (
 )
 
 type CreatePetsResponse struct {
-	HTTPMeta components.HTTPMetadata
+	HTTPMeta components.HTTPMetadata `json:"-"`
 	// unexpected error
 	Error *components.Error
 }

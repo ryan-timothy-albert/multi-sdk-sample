@@ -1,4 +1,4 @@
-speakeasyVersion: 1.293.0
+speakeasyVersion: 1.308.2
 sources:
     petstore:
         sourceNamespace: petstore
