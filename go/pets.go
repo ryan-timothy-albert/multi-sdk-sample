@@ -9,11 +9,11 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"openapi/internal/hooks"
-	"openapi/internal/utils"
-	"openapi/models/components"
-	"openapi/models/operations"
-	"openapi/models/sdkerrors"
+	"openapi/v2/internal/hooks"
+	"openapi/v2/internal/utils"
+	"openapi/v2/models/components"
+	"openapi/v2/models/operations"
+	"openapi/v2/models/sdkerrors"
 )
 
 type Pets struct {
