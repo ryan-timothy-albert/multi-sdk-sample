@@ -27,3 +27,13 @@ Based on:
 - [typescript v0.0.4] ts
 ### Releases
 - [NPM v0.0.4] https://www.npmjs.com/package/openapi/v/0.0.4 - ts
+
+## 2024-06-20 18:11:45
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.311.0 (2.347.8) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v0.1.2] ts
+### Releases
+- [NPM v0.1.2] https://www.npmjs.com/package/openapi/v/0.1.2 - ts
