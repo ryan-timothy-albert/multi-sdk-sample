@@ -2,8 +2,8 @@ speakeasyVersion: 1.311.0
 sources:
     petstore:
         sourceNamespace: petstore
-        sourceRevisionDigest: sha256:033231f81c8dea538385702890c18d4eba541e40c4c9361190502b3cbc48e08e
-        sourceBlobDigest: sha256:a920e56920687de800d5493fc1e12a6463a9374e14fd59f4da44149b162780b1
+        sourceRevisionDigest: sha256:de06f46ad3b984e5b4a9fd5a085efc38053db0b51242578410645b9ea1b83767
+        sourceBlobDigest: sha256:fc82de32b7a9f9c66fb6d03de79fb4e85cee54325a03547699f5cb20eb20a8ce
         tags:
             - latest
             - main
@@ -11,8 +11,8 @@ targets:
     first-target:
         source: petstore
         sourceNamespace: petstore
-        sourceRevisionDigest: sha256:033231f81c8dea538385702890c18d4eba541e40c4c9361190502b3cbc48e08e
-        sourceBlobDigest: sha256:a920e56920687de800d5493fc1e12a6463a9374e14fd59f4da44149b162780b1
+        sourceRevisionDigest: sha256:de06f46ad3b984e5b4a9fd5a085efc38053db0b51242578410645b9ea1b83767
+        sourceBlobDigest: sha256:fc82de32b7a9f9c66fb6d03de79fb4e85cee54325a03547699f5cb20eb20a8ce
         outLocation: go
     second-target:
         source: petstore

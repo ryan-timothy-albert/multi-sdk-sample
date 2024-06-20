@@ -5,8 +5,8 @@ management:
   docVersion: 1.0.0
   speakeasyVersion: 1.311.0
   generationVersion: 2.347.8
-  releaseVersion: 0.0.9
-  configChecksum: 873172e99fdd336d2229220ce3a24291
+  releaseVersion: 2.0.1-alpha
+  configChecksum: f06b78a5e80cc78d042948fd0bb3b672
   repoURL: https://github.com/ryan-timothy-albert/multi-sdk-sample.git
   repoSubDirectory: go
   installationURL: https://github.com/ryan-timothy-albert/multi-sdk-sample/go
