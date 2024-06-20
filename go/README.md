@@ -35,7 +35,7 @@ package main
 import (
 	"context"
 	"log"
-	"openapi"
+	openapi "openapi/v2"
 )
 
 func main() {
@@ -82,8 +82,8 @@ import (
 	"context"
 	"errors"
 	"log"
-	"openapi"
-	"openapi/models/sdkerrors"
+	openapi "openapi/v2"
+	"openapi/v2/models/sdkerrors"
 )
 
 func main() {
@@ -123,7 +123,7 @@ package main
 import (
 	"context"
 	"log"
-	"openapi"
+	openapi "openapi/v2"
 )
 
 func main() {
@@ -153,7 +153,7 @@ package main
 import (
 	"context"
 	"log"
-	"openapi"
+	openapi "openapi/v2"
 )
 
 func main() {
