@@ -3,10 +3,10 @@ id: f4be10ce-8651-4157-98c6-d75e2342372f
 management:
   docChecksum: 1bdb7a6f8bf3995d4b40475228403253
   docVersion: 1.0.0
-  speakeasyVersion: 1.310.0
-  generationVersion: 2.347.4
-  releaseVersion: 0.1.1
-  configChecksum: 517d399619763eff4388388571676139
+  speakeasyVersion: 1.311.0
+  generationVersion: 2.347.8
+  releaseVersion: 0.1.2
+  configChecksum: 0d81825bd4a701ce94330183d122a4bd
   repoURL: https://github.com/ryan-timothy-albert/multi-sdk-sample.git
   repoSubDirectory: ts
   installationURL: https://gitpkg.now.sh/ryan-timothy-albert/multi-sdk-sample/ts
@@ -14,7 +14,7 @@ management:
 features:
   typescript:
     additionalDependencies: 0.1.0
-    core: 3.10.0
+    core: 3.10.1
     flattening: 2.81.1
     globalSecurityCallbacks: 0.1.0
     globalServerURLs: 2.82.4
