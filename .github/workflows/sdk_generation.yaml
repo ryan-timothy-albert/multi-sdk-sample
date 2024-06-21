@@ -14,9 +14,6 @@ permissions:
             set_version:
                 description: optionally set a specific SDK version
                 type: string
-            target:
-                description: 'optionally: set a specific target to generate, default is all'
-                type: string
     schedule:
         - cron: 0 0 * * *
 jobs:
@@ -27,7 +24,6 @@ jobs:
             mode: pr
             set_version: ${{ github.event.inputs.set_version }}
             speakeasy_version: latest
-            target: ${{ github.event.inputs.target }}
         secrets:
             github_access_token: ${{ secrets.GITHUB_TOKEN }}
             pypi_token: ${{ secrets.PYPI_TOKEN }}
