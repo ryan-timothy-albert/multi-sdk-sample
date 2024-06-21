@@ -1,9 +1,9 @@
-speakeasyVersion: 1.311.0
+speakeasyVersion: 1.313.0
 sources:
     petstore:
         sourceNamespace: petstore
-        sourceRevisionDigest: sha256:2eb2094bcf935d1b86d06268ec14ada603b2f7de8ebd215b8c660f5c9e34fff4
-        sourceBlobDigest: sha256:ba9cdfa3fcbd2b7e521ae648f1c0f07ff5468842f9b4d2fb18e718af1d1cc95e
+        sourceRevisionDigest: sha256:c420b1723bee40dcb05f2e3b8be7bd54b53e0c6364427206b345fac87cbf4e39
+        sourceBlobDigest: sha256:22dd14e82d6f29388b34f7ed98f70cf5aeddf65675dc36bb338d8ba0e5a5cab0
         tags:
             - latest
             - main
@@ -11,20 +11,20 @@ targets:
     first-target:
         source: petstore
         sourceNamespace: petstore
-        sourceRevisionDigest: sha256:2eb2094bcf935d1b86d06268ec14ada603b2f7de8ebd215b8c660f5c9e34fff4
-        sourceBlobDigest: sha256:ba9cdfa3fcbd2b7e521ae648f1c0f07ff5468842f9b4d2fb18e718af1d1cc95e
+        sourceRevisionDigest: sha256:43e00c1936fbd300a4bc06b00137a809761dd7555e240b3018c8db265353f617
+        sourceBlobDigest: sha256:69030eebe8fbac7f1c6729e2ac8a2d88991e97b9da23d8f60af46b67e111fbe5
         outLocation: go
     second-target:
         source: petstore
         sourceNamespace: petstore
-        sourceRevisionDigest: sha256:22dea4fa269cfc90ef29c704b6a25e91601d47b45da74b25f6f8550d09740bf7
-        sourceBlobDigest: sha256:0988cc3ebcf0b14954c082c37c08f8a965b0ec72781ffd459a9d4e105519f1da
+        sourceRevisionDigest: sha256:c420b1723bee40dcb05f2e3b8be7bd54b53e0c6364427206b345fac87cbf4e39
+        sourceBlobDigest: sha256:22dd14e82d6f29388b34f7ed98f70cf5aeddf65675dc36bb338d8ba0e5a5cab0
         outLocation: py
     third-target:
         source: petstore
         sourceNamespace: petstore
-        sourceRevisionDigest: sha256:6778a64ea0cc1588cf4acfeaaed33434b1efd87d9cedfb056f62b39f603a10ad
-        sourceBlobDigest: sha256:30eb71cd81638d80d91f5c67625e62402d23581ba608f2c8b16f783a18673fce
+        sourceRevisionDigest: sha256:4d2c0c6fd28059d74f48674c5995e8655fbcd218452d1799d6714c8795b42abc
+        sourceBlobDigest: sha256:6557cb09d634a4acfe36c2e9ed8a41361557b421e2810bf1486f38da571612fa
         outLocation: ts
 workflow:
     workflowVersion: 1.0.0

@@ -27,3 +27,13 @@ Based on:
 - [PyPI v0.0.10] https://pypi.org/project/openapi/0.0.10 - py
 - [NPM v0.1.1] https://www.npmjs.com/package/openapi/v/0.1.1 - ts
 - [Go v0.0.8] https://github.com/ryan-timothy-albert/multi-sdk-sample/releases/tag/go/v0.0.8 - go
+
+## 2024-06-21 00:55:31
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.313.0 (2.347.8) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v0.0.11] py
+### Releases
+- [PyPI v0.0.11] https://pypi.org/project/openapi/0.0.11 - py
