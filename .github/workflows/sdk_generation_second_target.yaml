@@ -1,4 +1,4 @@
-name: Generate THIRD-TARGET
+name: Generate SECOND-TARGET
 permissions:
     checks: write
     contents: write
