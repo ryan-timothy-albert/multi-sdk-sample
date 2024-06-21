@@ -1,9 +1,9 @@
-speakeasyVersion: 1.311.0
+speakeasyVersion: 1.314.2
 sources:
     petstore:
         sourceNamespace: petstore
-        sourceRevisionDigest: sha256:2eb2094bcf935d1b86d06268ec14ada603b2f7de8ebd215b8c660f5c9e34fff4
-        sourceBlobDigest: sha256:ba9cdfa3fcbd2b7e521ae648f1c0f07ff5468842f9b4d2fb18e718af1d1cc95e
+        sourceRevisionDigest: sha256:70f0abb22fa7e8514f472918cf43b4b33d909288587ec9cb1e2eca2e1927dde7
+        sourceBlobDigest: sha256:641d5e7183d63fcddf8e6b012cf0ad40bce58f5f6ca9cf2d3c9d2d05b4ace012
         tags:
             - latest
             - main
@@ -17,8 +17,8 @@ targets:
     second-target:
         source: petstore
         sourceNamespace: petstore
-        sourceRevisionDigest: sha256:22dea4fa269cfc90ef29c704b6a25e91601d47b45da74b25f6f8550d09740bf7
-        sourceBlobDigest: sha256:0988cc3ebcf0b14954c082c37c08f8a965b0ec72781ffd459a9d4e105519f1da
+        sourceRevisionDigest: sha256:70f0abb22fa7e8514f472918cf43b4b33d909288587ec9cb1e2eca2e1927dde7
+        sourceBlobDigest: sha256:641d5e7183d63fcddf8e6b012cf0ad40bce58f5f6ca9cf2d3c9d2d05b4ace012
         outLocation: py
     third-target:
         source: petstore
