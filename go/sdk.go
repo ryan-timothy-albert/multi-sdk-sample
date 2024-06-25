@@ -5,8 +5,8 @@ package openapi
 import (
 	"fmt"
 	"net/http"
-	"openapi/v2/internal/hooks"
-	"openapi/v2/internal/utils"
+	"openapi/v5/internal/hooks"
+	"openapi/v5/internal/utils"
 	"time"
 )
 
@@ -116,9 +116,9 @@ func New(opts ...SDKOption) *SDK {
 		sdkConfiguration: sdkConfiguration{
 			Language:          "go",
 			OpenAPIDocVersion: "1.0.0",
-			SDKVersion:        "2.0.0-alpha.2",
+			SDKVersion:        "5.0.0",
 			GenVersion:        "2.352.0",
-			UserAgent:         "speakeasy-sdk/go 2.0.0-alpha.2 2.352.0 1.0.0 openapi",
+			UserAgent:         "speakeasy-sdk/go 5.0.0 2.352.0 1.0.0 openapi",
 			Hooks:             hooks.New(),
 		},
 	}

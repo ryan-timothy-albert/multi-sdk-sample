@@ -3,7 +3,7 @@
 package operations
 
 import (
-	"openapi/v2/models/components"
+	"openapi/v5/models/components"
 )
 
 type CreatePetsResponse struct {

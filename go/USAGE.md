@@ -5,7 +5,7 @@ package main
 import (
 	"context"
 	"log"
-	openapi "openapi/v2"
+	openapi "openapi/v5"
 )
 
 func main() {

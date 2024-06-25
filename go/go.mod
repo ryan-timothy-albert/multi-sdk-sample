@@ -1,4 +1,4 @@
-module openapi/v2
+module openapi/v5
 
 go 1.20
 

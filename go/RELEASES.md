@@ -89,3 +89,13 @@ Based on:
 - [go v2.0.0-alpha.2] go
 ### Releases
 - [Go v2.0.0-alpha.2] https://github.com/ryan-timothy-albert/multi-sdk-sample/releases/tag/go/v2.0.0-alpha.2 - go
+
+## 2024-06-25 20:24:30
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.316.0 (2.352.0) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [go v5.0.0] go
+### Releases
+- [Go v5.0.0] https://github.com/ryan-timothy-albert/multi-sdk-sample/releases/tag/go/v5.0.0 - go

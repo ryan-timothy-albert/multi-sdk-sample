@@ -17,7 +17,7 @@ List all pets
 package main
 
 import(
-	openapi "openapi/v2"
+	openapi "openapi/v5"
 	"context"
 	"log"
 )
@@ -61,8 +61,8 @@ Create a pet
 package main
 
 import(
-	openapi "openapi/v2"
-	"openapi/v2/models/components"
+	openapi "openapi/v5"
+	"openapi/v5/models/components"
 	"context"
 	"log"
 )
@@ -109,7 +109,7 @@ Info for a specific pet
 package main
 
 import(
-	openapi "openapi/v2"
+	openapi "openapi/v5"
 	"context"
 	"log"
 )
