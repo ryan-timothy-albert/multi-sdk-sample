@@ -1,6 +1,6 @@
 configVersion: 2.0.0
 generation:
-  sdkClassName: SDK
+  sdkClassName: RyTs
   maintainOpenAPIOrder: true
   usageSnippets:
     optionalPropertyRendering: withExample
@@ -18,7 +18,7 @@ typescript:
     devDependencies: {}
     peerDependencies: {}
   additionalPackageJSON: {}
-  author: Speakeasy
+  author: ryantimalbert
   clientServerStatusCodesAsErrors: true
   enumFormat: enum
   flattenGlobalSecurity: true
@@ -34,7 +34,7 @@ typescript:
   maxMethodParams: 4
   methodArguments: require-security-and-request
   outputModelSuffix: output
-  packageName: openapi
+  packageName: ryan-test-1
   responseFormat: envelope-http
   templateVersion: v2
   useIndexModules: true
