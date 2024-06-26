@@ -22,25 +22,25 @@ It has been generated successfully based on your OpenAPI spec. However, it is no
 ### NPM
 
 ```bash
-npm add openapi
+npm add ryan-test-1
 ```
 
 ### PNPM
 
 ```bash
-pnpm add openapi
+pnpm add ryan-test-1
 ```
 
 ### Bun
 
 ```bash
-bun add openapi
+bun add ryan-test-1
 ```
 
 ### Yarn
 
 ```bash
-yarn add openapi zod
+yarn add ryan-test-1 zod
 
 # Note that Yarn does not install peer dependencies automatically. You will need
 # to install zod as shown above.
@@ -59,12 +59,12 @@ For supported JavaScript runtimes, please consult [RUNTIMES.md](RUNTIMES.md).
 ### Example
 
 ```typescript
-import { SDK } from "openapi";
+import { RyTs } from "ryan-test-1";
 
-const sdk = new SDK();
+const ryTs = new RyTs();
 
 async function run() {
-    const result = await sdk.pets.listPets(21453);
+    const result = await ryTs.pets.listPets(21453);
 
     // Handle the result
     console.log(result);
@@ -98,15 +98,15 @@ Validation errors can also occur when either method arguments or data returned f
 
 
 ```typescript
-import { SDK } from "openapi";
-import { SDKValidationError } from "openapi/models/errors";
+import { RyTs } from "ryan-test-1";
+import { SDKValidationError } from "ryan-test-1/models/errors";
 
-const sdk = new SDK();
+const ryTs = new RyTs();
 
 async function run() {
     let result;
     try {
-        result = await sdk.pets.listPets(21453);
+        result = await ryTs.pets.listPets(21453);
     } catch (err) {
         switch (true) {
             case err instanceof SDKValidationError: {
@@ -143,14 +143,14 @@ You can override the default server globally by passing a server index to the `s
 | 0 | `http://petstore.swagger.io/v1` | None |
 
 ```typescript
-import { SDK } from "openapi";
+import { RyTs } from "ryan-test-1";
 
-const sdk = new SDK({
+const ryTs = new RyTs({
     serverIdx: 0,
 });
 
 async function run() {
-    const result = await sdk.pets.listPets(21453);
+    const result = await ryTs.pets.listPets(21453);
 
     // Handle the result
     console.log(result);
@@ -166,14 +166,14 @@ run();
 The default server can also be overridden globally by passing a URL to the `serverURL` optional parameter when initializing the SDK client instance. For example:
 
 ```typescript
-import { SDK } from "openapi";
+import { RyTs } from "ryan-test-1";
 
-const sdk = new SDK({
+const ryTs = new RyTs({
     serverURL: "http://petstore.swagger.io/v1",
 });
 
 async function run() {
-    const result = await sdk.pets.listPets(21453);
+    const result = await ryTs.pets.listPets(21453);
 
     // Handle the result
     console.log(result);
@@ -202,8 +202,8 @@ custom header and a timeout to requests and how to use the `"requestError"` hook
 to log errors:
 
 ```typescript
-import { SDK } from "openapi";
-import { HTTPClient } from "openapi/lib/http";
+import { RyTs } from "ryan-test-1";
+import { HTTPClient } from "ryan-test-1/lib/http";
 
 const httpClient = new HTTPClient({
   // fetcher takes a function that has the same signature as native `fetch`.
@@ -229,7 +229,7 @@ httpClient.addHook("requestError", (error, request) => {
   console.groupEnd();
 });
 
-const sdk = new SDK({ httpClient });
+const sdk = new RyTs({ httpClient });
 ```
 <!-- End Custom HTTP Client [http-client] -->
 

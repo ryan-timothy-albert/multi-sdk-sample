@@ -1,11 +1,11 @@
 <!-- Start SDK Example Usage [usage] -->
 ```typescript
-import { SDK } from "openapi";
+import { RyTs } from "ryan-test-1";
 
-const sdk = new SDK();
+const ryTs = new RyTs();
 
 async function run() {
-    const result = await sdk.pets.listPets(21453);
+    const result = await ryTs.pets.listPets(21453);
 
     // Handle the result
     console.log(result);
