@@ -8,7 +8,7 @@ import { HTTPClient } from "../lib/http.js";
 import { ClientSDK } from "../lib/sdks.js";
 import { Pets } from "./pets.js";
 
-export class SDK extends ClientSDK {
+export class RyTs extends ClientSDK {
     private readonly options$: SDKOptions & { hooks?: SDKHooks };
 
     constructor(options: SDKOptions = {}) {
