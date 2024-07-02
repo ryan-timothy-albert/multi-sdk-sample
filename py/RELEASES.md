@@ -79,3 +79,13 @@ Based on:
 - [python v0.0.8] py
 ### Releases
 - [PyPI v0.0.8] https://pypi.org/project/openapi/0.0.8 - py
+
+## 2024-07-02 00:41:29
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.325.0 (2.356.0) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v0.0.11] py
+### Releases
+- [PyPI v0.0.11] https://pypi.org/project/openapi/0.0.11 - py
