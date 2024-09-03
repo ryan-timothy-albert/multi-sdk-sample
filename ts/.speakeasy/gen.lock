@@ -3,10 +3,10 @@ id: f4be10ce-8651-4157-98c6-d75e2342372f
 management:
   docChecksum: 1bdb7a6f8bf3995d4b40475228403253
   docVersion: 1.0.0
-  speakeasyVersion: 1.386.0
-  generationVersion: 2.407.2
-  releaseVersion: 0.2.0
-  configChecksum: 27613f0fb383aea1039a3e8685c9adbd
+  speakeasyVersion: 1.389.1
+  generationVersion: 2.409.0
+  releaseVersion: 0.3.0
+  configChecksum: faaa20b2350ac2b25e59b50425d3b460
   repoURL: https://github.com/ryan-timothy-albert/multi-sdk-sample.git
   repoSubDirectory: ts
   installationURL: https://gitpkg.now.sh/ryan-timothy-albert/multi-sdk-sample/ts
@@ -14,7 +14,7 @@ management:
 features:
   typescript:
     additionalDependencies: 0.1.0
-    core: 3.14.2
+    core: 3.16.0
     defaultEnabledRetries: 0.1.0
     envVarSecurityUsage: 0.1.1
     flattening: 2.81.1
@@ -41,6 +41,7 @@ generatedFiles:
   - src/lib/config.ts
   - src/lib/dlv.ts
   - src/lib/encodings.ts
+  - src/lib/files.ts
   - src/lib/http.ts
   - src/lib/is-plain-object.ts
   - src/lib/logger.ts
@@ -62,6 +63,7 @@ generatedFiles:
   - src/types/index.ts
   - src/types/operations.ts
   - src/types/rfcdate.ts
+  - src/types/streams.ts
   - tsconfig.json
   - src/models/operations/listpets.ts
   - src/models/operations/createpets.ts
