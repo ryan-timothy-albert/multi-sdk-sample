@@ -16,8 +16,31 @@ It has been generated successfully based on your OpenAPI spec. However, it is no
 - [ ] 🎁 Publish your SDK to package managers by [configuring automatic publishing](https://www.speakeasyapi.dev/docs/advanced-setup/publish-sdks)
 - [ ] ✨ When ready to productionize, delete this section from the README
 
+<!-- Start Summary [summary] -->
+## Summary
+
+
+<!-- End Summary [summary] -->
+
+<!-- Start Table of Contents [toc] -->
+## Table of Contents
+
+* [SDK Installation](#sdk-installation)
+* [Requirements](#requirements)
+* [SDK Example Usage](#sdk-example-usage)
+* [Available Resources and Operations](#available-resources-and-operations)
+* [Standalone functions](#standalone-functions)
+* [Retries](#retries)
+* [Error Handling](#error-handling)
+* [Server Selection](#server-selection)
+* [Custom HTTP Client](#custom-http-client)
+* [Debugging](#debugging)
+<!-- End Table of Contents [toc] -->
+
 <!-- Start SDK Installation [installation] -->
 ## SDK Installation
+
+The SDK can be installed with either [npm](https://www.npmjs.com/), [pnpm](https://pnpm.io/), [bun](https://bun.sh/) or [yarn](https://classic.yarnpkg.com/en/) package managers.
 
 ### NPM
 
@@ -64,7 +87,7 @@ import { RyTs } from "ryan-test-1";
 const ryTs = new RyTs();
 
 async function run() {
-    const result = await ryTs.pets.listPets(21453);
+    const result = await ryTs.pets.listPets();
 
     // Handle the result
     console.log(result);
@@ -84,6 +107,91 @@ run();
 * [createPets](docs/sdks/pets/README.md#createpets) - Create a pet
 * [showPetById](docs/sdks/pets/README.md#showpetbyid) - Info for a specific pet
 <!-- End Available Resources and Operations [operations] -->
+
+<!-- Start Standalone functions [standalone-funcs] -->
+## Standalone functions
+
+All the methods listed above are available as standalone functions. These
+functions are ideal for use in applications running in the browser, serverless
+runtimes or other environments where application bundle size is a primary
+concern. When using a bundler to build your application, all unused
+functionality will be either excluded from the final bundle or tree-shaken away.
+
+To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
+
+<details>
+
+<summary>Available standalone functions</summary>
+
+- [petsCreatePets](docs/sdks/pets/README.md#createpets)
+- [petsListPets](docs/sdks/pets/README.md#listpets)
+- [petsShowPetById](docs/sdks/pets/README.md#showpetbyid)
+
+
+</details>
+<!-- End Standalone functions [standalone-funcs] -->
+
+<!-- Start Retries [retries] -->
+## Retries
+
+Some of the endpoints in this SDK support retries.  If you use the SDK without any configuration, it will fall back to the default retry strategy provided by the API.  However, the default retry strategy can be overridden on a per-operation basis, or across the entire SDK.
+
+To change the default retry strategy for a single API call, simply provide a retryConfig object to the call:
+```typescript
+import { RyTs } from "ryan-test-1";
+
+const ryTs = new RyTs();
+
+async function run() {
+    const result = await ryTs.pets.listPets({
+        retries: {
+            strategy: "backoff",
+            backoff: {
+                initialInterval: 1,
+                maxInterval: 50,
+                exponent: 1.1,
+                maxElapsedTime: 100,
+            },
+            retryConnectionErrors: false,
+        },
+    });
+
+    // Handle the result
+    console.log(result);
+}
+
+run();
+
+```
+
+If you'd like to override the default retry strategy for all operations that support retries, you can provide a retryConfig at SDK initialization:
+```typescript
+import { RyTs } from "ryan-test-1";
+
+const ryTs = new RyTs({
+    retryConfig: {
+        strategy: "backoff",
+        backoff: {
+            initialInterval: 1,
+            maxInterval: 50,
+            exponent: 1.1,
+            maxElapsedTime: 100,
+        },
+        retryConnectionErrors: false,
+    },
+});
+
+async function run() {
+    const result = await ryTs.pets.listPets();
+
+    // Handle the result
+    console.log(result);
+}
+
+run();
+
+```
+<!-- End Retries [retries] -->
 
 <!-- Start Error Handling [errors] -->
 ## Error Handling
@@ -106,7 +214,7 @@ const ryTs = new RyTs();
 async function run() {
     let result;
     try {
-        result = await ryTs.pets.listPets(21453);
+        result = await ryTs.pets.listPets();
     } catch (err) {
         switch (true) {
             case err instanceof SDKValidationError: {
@@ -150,7 +258,7 @@ const ryTs = new RyTs({
 });
 
 async function run() {
-    const result = await ryTs.pets.listPets(21453);
+    const result = await ryTs.pets.listPets();
 
     // Handle the result
     console.log(result);
@@ -173,7 +281,7 @@ const ryTs = new RyTs({
 });
 
 async function run() {
-    const result = await ryTs.pets.listPets(21453);
+    const result = await ryTs.pets.listPets();
 
     // Handle the result
     console.log(result);
@@ -232,6 +340,23 @@ httpClient.addHook("requestError", (error, request) => {
 const sdk = new RyTs({ httpClient });
 ```
 <!-- End Custom HTTP Client [http-client] -->
+
+<!-- Start Debugging [debug] -->
+## Debugging
+
+You can setup your SDK to emit debug logs for SDK requests and responses.
+
+You can pass a logger that matches `console`'s interface as an SDK option.
+
+> [!WARNING]
+> Beware that debug logging will reveal secrets, like API tokens in headers, in log messages printed to a console or files. It's recommended to use this feature only during local development and not in production.
+
+```typescript
+import { RyTs } from "ryan-test-1";
+
+const sdk = new RyTs({ debugLogger: console });
+```
+<!-- End Debugging [debug] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

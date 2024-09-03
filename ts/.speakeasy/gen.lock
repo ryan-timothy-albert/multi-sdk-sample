@@ -3,10 +3,10 @@ id: f4be10ce-8651-4157-98c6-d75e2342372f
 management:
   docChecksum: 1bdb7a6f8bf3995d4b40475228403253
   docVersion: 1.0.0
-  speakeasyVersion: 1.320.0
-  generationVersion: 2.354.1
-  releaseVersion: 0.1.3
-  configChecksum: 1552f23964d9ccd2f55c761daa8183c5
+  speakeasyVersion: 1.386.0
+  generationVersion: 2.407.2
+  releaseVersion: 0.2.0
+  configChecksum: 27613f0fb383aea1039a3e8685c9adbd
   repoURL: https://github.com/ryan-timothy-albert/multi-sdk-sample.git
   repoSubDirectory: ts
   installationURL: https://gitpkg.now.sh/ryan-timothy-albert/multi-sdk-sample/ts
@@ -14,26 +14,37 @@ management:
 features:
   typescript:
     additionalDependencies: 0.1.0
-    core: 3.10.2
+    core: 3.14.2
+    defaultEnabledRetries: 0.1.0
+    envVarSecurityUsage: 0.1.1
     flattening: 2.81.1
     globalSecurityCallbacks: 0.1.0
     globalServerURLs: 2.82.4
     responseFormat: 0.2.3
+    retries: 2.83.0
     sdkHooks: 0.1.0
 generatedFiles:
+  - src/funcs/petsListPets.ts
+  - src/funcs/petsCreatePets.ts
+  - src/funcs/petsShowPetById.ts
   - src/sdk/pets.ts
   - src/sdk/sdk.ts
   - .eslintrc.cjs
   - .npmignore
+  - FUNCTIONS.md
   - RUNTIMES.md
   - jsr.json
   - package.json
+  - src/core.ts
   - src/index.ts
   - src/lib/base64.ts
   - src/lib/config.ts
+  - src/lib/dlv.ts
   - src/lib/encodings.ts
   - src/lib/http.ts
   - src/lib/is-plain-object.ts
+  - src/lib/logger.ts
+  - src/lib/matchers.ts
   - src/lib/primitives.ts
   - src/lib/retries.ts
   - src/lib/schemas.ts
@@ -41,10 +52,13 @@ generatedFiles:
   - src/lib/security.ts
   - src/lib/url.ts
   - src/sdk/index.ts
+  - src/models/errors/httpclienterrors.ts
   - src/models/errors/sdkerror.ts
   - src/models/errors/sdkvalidationerror.ts
   - src/types/blobs.ts
+  - src/types/constdatetime.ts
   - src/types/enums.ts
+  - src/types/fp.ts
   - src/types/index.ts
   - src/types/operations.ts
   - src/types/rfcdate.ts
@@ -67,9 +81,11 @@ generatedFiles:
   - docs/models/components/pet.md
   - docs/models/components/httpmetadata.md
   - docs/sdks/ryts/README.md
+  - docs/lib/utils/retryconfig.md
   - docs/sdks/pets/README.md
   - USAGE.md
   - .gitattributes
   - src/hooks/hooks.ts
   - src/hooks/types.ts
   - src/hooks/index.ts
+  - CONTRIBUTING.md
