@@ -1,9 +1,9 @@
-speakeasyVersion: 1.320.0
+speakeasyVersion: 1.386.0
 sources:
     petstore:
         sourceNamespace: petstore
-        sourceRevisionDigest: sha256:4a8c53aa372a12ba7286627d4aedfa8519b22e90f5078986354eccac2517b323
-        sourceBlobDigest: sha256:c98884351f4dbd0082c2aab44206c8b17385357097608a34ba00ed234d451247
+        sourceRevisionDigest: sha256:b23d2e4295b237e0a0c3dd7f974793d6673f9b1e245251a175f02a8bb69787be
+        sourceBlobDigest: sha256:7c35756702030633a8d2ebb1d378d34f883126319b06edcd798ac7bb2fddb189
         tags:
             - latest
             - main
@@ -23,8 +23,8 @@ targets:
     third-target:
         source: petstore
         sourceNamespace: petstore
-        sourceRevisionDigest: sha256:4a8c53aa372a12ba7286627d4aedfa8519b22e90f5078986354eccac2517b323
-        sourceBlobDigest: sha256:c98884351f4dbd0082c2aab44206c8b17385357097608a34ba00ed234d451247
+        sourceRevisionDigest: sha256:b23d2e4295b237e0a0c3dd7f974793d6673f9b1e245251a175f02a8bb69787be
+        sourceBlobDigest: sha256:7c35756702030633a8d2ebb1d378d34f883126319b06edcd798ac7bb2fddb189
         outLocation: ts
 workflow:
     workflowVersion: 1.0.0

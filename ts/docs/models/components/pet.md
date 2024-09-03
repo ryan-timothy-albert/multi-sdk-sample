@@ -1,5 +1,15 @@
 # Pet
 
+## Example Usage
+
+```typescript
+import { Pet } from "ryan-test-1/models/components";
+
+let value: Pet = {
+    id: 592845,
+    name: "<value>",
+};
+```
 
 ## Fields
 

@@ -1,5 +1,12 @@
 # ListPetsRequest
 
+## Example Usage
+
+```typescript
+import { ListPetsRequest } from "ryan-test-1/models/operations";
+
+let value: ListPetsRequest = {};
+```
 
 ## Fields
 
