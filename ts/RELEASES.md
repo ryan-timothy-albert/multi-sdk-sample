@@ -67,3 +67,13 @@ Based on:
 - [typescript v0.3.0] ts
 ### Releases
 - [NPM v0.3.0] https://www.npmjs.com/package/ryan-test-1/v/0.3.0 - ts
+
+## 2024-10-23 16:33:31
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.421.0 (2.438.15) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v0.4.0] ts
+### Releases
+- [NPM v0.4.0] https://www.npmjs.com/package/ryan-test-1/v/0.4.0 - ts

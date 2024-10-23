@@ -87,10 +87,10 @@ import { RyTs } from "ryan-test-1";
 const ryTs = new RyTs();
 
 async function run() {
-    const result = await ryTs.pets.listPets();
+  const result = await ryTs.pets.listPets();
 
-    // Handle the result
-    console.log(result);
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -101,11 +101,17 @@ run();
 <!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
 
+<details open>
+<summary>Available methods</summary>
+
 ### [pets](docs/sdks/pets/README.md)
 
 * [listPets](docs/sdks/pets/README.md#listpets) - List all pets
 * [createPets](docs/sdks/pets/README.md#createpets) - Create a pet
 * [showPetById](docs/sdks/pets/README.md#showpetbyid) - Info for a specific pet
+
+
+</details>
 <!-- End Available Resources and Operations [operations] -->
 
 <!-- Start Standalone functions [standalone-funcs] -->
@@ -123,10 +129,9 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 
 <summary>Available standalone functions</summary>
 
-- [petsCreatePets](docs/sdks/pets/README.md#createpets)
-- [petsListPets](docs/sdks/pets/README.md#listpets)
-- [petsShowPetById](docs/sdks/pets/README.md#showpetbyid)
-
+- [`petsCreatePets`](docs/sdks/pets/README.md#createpets) - Create a pet
+- [`petsListPets`](docs/sdks/pets/README.md#listpets) - List all pets
+- [`petsShowPetById`](docs/sdks/pets/README.md#showpetbyid) - Info for a specific pet
 
 </details>
 <!-- End Standalone functions [standalone-funcs] -->
@@ -143,21 +148,21 @@ import { RyTs } from "ryan-test-1";
 const ryTs = new RyTs();
 
 async function run() {
-    const result = await ryTs.pets.listPets({
-        retries: {
-            strategy: "backoff",
-            backoff: {
-                initialInterval: 1,
-                maxInterval: 50,
-                exponent: 1.1,
-                maxElapsedTime: 100,
-            },
-            retryConnectionErrors: false,
-        },
-    });
+  const result = await ryTs.pets.listPets({
+    retries: {
+      strategy: "backoff",
+      backoff: {
+        initialInterval: 1,
+        maxInterval: 50,
+        exponent: 1.1,
+        maxElapsedTime: 100,
+      },
+      retryConnectionErrors: false,
+    },
+  });
 
-    // Handle the result
-    console.log(result);
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -169,23 +174,23 @@ If you'd like to override the default retry strategy for all operations that sup
 import { RyTs } from "ryan-test-1";
 
 const ryTs = new RyTs({
-    retryConfig: {
-        strategy: "backoff",
-        backoff: {
-            initialInterval: 1,
-            maxInterval: 50,
-            exponent: 1.1,
-            maxElapsedTime: 100,
-        },
-        retryConnectionErrors: false,
+  retryConfig: {
+    strategy: "backoff",
+    backoff: {
+      initialInterval: 1,
+      maxInterval: 50,
+      exponent: 1.1,
+      maxElapsedTime: 100,
     },
+    retryConnectionErrors: false,
+  },
 });
 
 async function run() {
-    const result = await ryTs.pets.listPets();
+  const result = await ryTs.pets.listPets();
 
-    // Handle the result
-    console.log(result);
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -196,14 +201,23 @@ run();
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
-All SDK methods return a response object or throw an error. If Error objects are specified in your OpenAPI Spec, the SDK will throw the appropriate Error type.
+All SDK methods return a response object or throw an error. By default, an API error will throw a `errors.SDKError`.
 
-| Error Object    | Status Code     | Content Type    |
+If a HTTP request fails, an operation my also throw an error from the `models/errors/httpclienterrors.ts` module:
+
+| HTTP Client Error                                    | Description                                          |
+| ---------------------------------------------------- | ---------------------------------------------------- |
+| RequestAbortedError                                  | HTTP request was aborted by the client               |
+| RequestTimeoutError                                  | HTTP request timed out due to an AbortSignal signal  |
+| ConnectionError                                      | HTTP client was unable to make a request to a server |
+| InvalidRequestError                                  | Any input used to create a request is invalid        |
+| UnexpectedClientError                                | Unrecognised or unexpected error                     |
+
+In addition, when custom error responses are specified for an operation, the SDK may throw their associated Error type. You can refer to respective *Errors* tables in SDK docs for more details on possible error types for each operation. For example, the `listPets` method may throw the following errors:
+
+| Error Type      | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 4xx-5xx         | */*             |
-
-Validation errors can also occur when either method arguments or data returned from the server do not match the expected format. The `SDKValidationError` that is thrown as a result will capture the raw value that failed validation in an attribute called `rawValue`. Additionally, a `pretty()` method is available on this error that can be used to log a nicely formatted string since validation errors can list many issues and the plain error string may be difficult read when debugging. 
-
+| errors.SDKError | 4XX, 5XX        | \*/\*           |
 
 ```typescript
 import { RyTs } from "ryan-test-1";
@@ -212,31 +226,33 @@ import { SDKValidationError } from "ryan-test-1/models/errors";
 const ryTs = new RyTs();
 
 async function run() {
-    let result;
-    try {
-        result = await ryTs.pets.listPets();
-    } catch (err) {
-        switch (true) {
-            case err instanceof SDKValidationError: {
-                // Validation errors can be pretty-printed
-                console.error(err.pretty());
-                // Raw value may also be inspected
-                console.error(err.rawValue);
-                return;
-            }
-            default: {
-                throw err;
-            }
-        }
-    }
+  let result;
+  try {
+    result = await ryTs.pets.listPets();
 
     // Handle the result
     console.log(result);
+  } catch (err) {
+    switch (true) {
+      case (err instanceof SDKValidationError): {
+        // Validation errors can be pretty-printed
+        console.error(err.pretty());
+        // Raw value may also be inspected
+        console.error(err.rawValue);
+        return;
+      }
+      default: {
+        throw err;
+      }
+    }
+  }
 }
 
 run();
 
 ```
+
+Validation errors can also occur when either method arguments or data returned from the server do not match the expected format. The `SDKValidationError` that is thrown as a result will capture the raw value that failed validation in an attribute called `rawValue`. Additionally, a `pretty()` method is available on this error that can be used to log a nicely formatted string since validation errors can list many issues and the plain error string may be difficult read when debugging.
 <!-- End Error Handling [errors] -->
 
 <!-- Start Server Selection [server] -->
@@ -254,14 +270,14 @@ You can override the default server globally by passing a server index to the `s
 import { RyTs } from "ryan-test-1";
 
 const ryTs = new RyTs({
-    serverIdx: 0,
+  serverIdx: 0,
 });
 
 async function run() {
-    const result = await ryTs.pets.listPets();
+  const result = await ryTs.pets.listPets();
 
-    // Handle the result
-    console.log(result);
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -277,14 +293,14 @@ The default server can also be overridden globally by passing a URL to the `serv
 import { RyTs } from "ryan-test-1";
 
 const ryTs = new RyTs({
-    serverURL: "http://petstore.swagger.io/v1",
+  serverURL: "http://petstore.swagger.io/v1",
 });
 
 async function run() {
-    const result = await ryTs.pets.listPets();
+  const result = await ryTs.pets.listPets();
 
-    // Handle the result
-    console.log(result);
+  // Handle the result
+  console.log(result);
 }
 
 run();

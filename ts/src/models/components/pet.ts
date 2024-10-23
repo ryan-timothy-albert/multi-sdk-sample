@@ -5,41 +5,43 @@
 import * as z from "zod";
 
 export type Pet = {
-    id: number;
-    name: string;
-    tag?: string | undefined;
+  id: number;
+  name: string;
+  tag?: string | undefined;
 };
 
 /** @internal */
-export const Pet$inboundSchema: z.ZodType<Pet, z.ZodTypeDef, unknown> = z.object({
+export const Pet$inboundSchema: z.ZodType<Pet, z.ZodTypeDef, unknown> = z
+  .object({
     id: z.number().int(),
     name: z.string(),
     tag: z.string().optional(),
-});
+  });
 
 /** @internal */
 export type Pet$Outbound = {
-    id: number;
-    name: string;
-    tag?: string | undefined;
+  id: number;
+  name: string;
+  tag?: string | undefined;
 };
 
 /** @internal */
-export const Pet$outboundSchema: z.ZodType<Pet$Outbound, z.ZodTypeDef, Pet> = z.object({
+export const Pet$outboundSchema: z.ZodType<Pet$Outbound, z.ZodTypeDef, Pet> = z
+  .object({
     id: z.number().int(),
     name: z.string(),
     tag: z.string().optional(),
-});
+  });
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
 export namespace Pet$ {
-    /** @deprecated use `Pet$inboundSchema` instead. */
-    export const inboundSchema = Pet$inboundSchema;
-    /** @deprecated use `Pet$outboundSchema` instead. */
-    export const outboundSchema = Pet$outboundSchema;
-    /** @deprecated use `Pet$Outbound` instead. */
-    export type Outbound = Pet$Outbound;
+  /** @deprecated use `Pet$inboundSchema` instead. */
+  export const inboundSchema = Pet$inboundSchema;
+  /** @deprecated use `Pet$outboundSchema` instead. */
+  export const outboundSchema = Pet$outboundSchema;
+  /** @deprecated use `Pet$Outbound` instead. */
+  export type Outbound = Pet$Outbound;
 }
