@@ -6,8 +6,8 @@
 import { ErrorT } from "ryan-test-1/models/components";
 
 let value: ErrorT = {
-    code: 548814,
-    message: "<value>",
+  code: 548814,
+  message: "<value>",
 };
 ```
 

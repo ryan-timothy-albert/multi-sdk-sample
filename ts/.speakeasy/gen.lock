@@ -3,10 +3,10 @@ id: f4be10ce-8651-4157-98c6-d75e2342372f
 management:
   docChecksum: 1bdb7a6f8bf3995d4b40475228403253
   docVersion: 1.0.0
-  speakeasyVersion: 1.389.1
-  generationVersion: 2.409.0
-  releaseVersion: 0.3.0
-  configChecksum: faaa20b2350ac2b25e59b50425d3b460
+  speakeasyVersion: 1.421.0
+  generationVersion: 2.438.15
+  releaseVersion: 0.4.0
+  configChecksum: 0e4d4f7770c9dbcb2f8a13cfc85df0f5
   repoURL: https://github.com/ryan-timothy-albert/multi-sdk-sample.git
   repoSubDirectory: ts
   installationURL: https://gitpkg.now.sh/ryan-timothy-albert/multi-sdk-sample/ts
@@ -14,28 +14,43 @@ management:
 features:
   typescript:
     additionalDependencies: 0.1.0
-    core: 3.16.0
+    core: 3.18.2
     defaultEnabledRetries: 0.1.0
     envVarSecurityUsage: 0.1.1
-    flattening: 2.81.1
+    flattening: 2.82.0
     globalSecurityCallbacks: 0.1.0
     globalServerURLs: 2.82.4
     responseFormat: 0.2.3
     retries: 2.83.0
     sdkHooks: 0.1.0
 generatedFiles:
-  - src/funcs/petsListPets.ts
-  - src/funcs/petsCreatePets.ts
-  - src/funcs/petsShowPetById.ts
-  - src/sdk/pets.ts
-  - src/sdk/sdk.ts
   - .eslintrc.cjs
+  - .gitattributes
   - .npmignore
+  - CONTRIBUTING.md
   - FUNCTIONS.md
   - RUNTIMES.md
+  - USAGE.md
+  - docs/lib/utils/retryconfig.md
+  - docs/models/components/errort.md
+  - docs/models/components/httpmetadata.md
+  - docs/models/components/pet.md
+  - docs/models/operations/createpetsresponse.md
+  - docs/models/operations/listpetsrequest.md
+  - docs/models/operations/listpetsresponse.md
+  - docs/models/operations/showpetbyidrequest.md
+  - docs/models/operations/showpetbyidresponse.md
+  - docs/sdks/pets/README.md
+  - docs/sdks/ryts/README.md
   - jsr.json
   - package.json
   - src/core.ts
+  - src/funcs/petsCreatePets.ts
+  - src/funcs/petsListPets.ts
+  - src/funcs/petsShowPetById.ts
+  - src/hooks/hooks.ts
+  - src/hooks/index.ts
+  - src/hooks/types.ts
   - src/index.ts
   - src/lib/base64.ts
   - src/lib/config.ts
@@ -52,10 +67,21 @@ generatedFiles:
   - src/lib/sdks.ts
   - src/lib/security.ts
   - src/lib/url.ts
-  - src/sdk/index.ts
+  - src/models/components/error.ts
+  - src/models/components/httpmetadata.ts
+  - src/models/components/index.ts
+  - src/models/components/pet.ts
   - src/models/errors/httpclienterrors.ts
+  - src/models/errors/index.ts
   - src/models/errors/sdkerror.ts
   - src/models/errors/sdkvalidationerror.ts
+  - src/models/operations/createpets.ts
+  - src/models/operations/index.ts
+  - src/models/operations/listpets.ts
+  - src/models/operations/showpetbyid.ts
+  - src/sdk/index.ts
+  - src/sdk/pets.ts
+  - src/sdk/sdk.ts
   - src/types/blobs.ts
   - src/types/constdatetime.ts
   - src/types/enums.ts
@@ -65,29 +91,28 @@ generatedFiles:
   - src/types/rfcdate.ts
   - src/types/streams.ts
   - tsconfig.json
-  - src/models/operations/listpets.ts
-  - src/models/operations/createpets.ts
-  - src/models/operations/showpetbyid.ts
-  - src/models/components/error.ts
-  - src/models/components/pet.ts
-  - src/models/components/httpmetadata.ts
-  - src/models/errors/index.ts
-  - src/models/operations/index.ts
-  - src/models/components/index.ts
-  - docs/models/operations/listpetsrequest.md
-  - docs/models/operations/listpetsresponse.md
-  - docs/models/operations/createpetsresponse.md
-  - docs/models/operations/showpetbyidrequest.md
-  - docs/models/operations/showpetbyidresponse.md
-  - docs/models/components/errort.md
-  - docs/models/components/pet.md
-  - docs/models/components/httpmetadata.md
-  - docs/sdks/ryts/README.md
-  - docs/lib/utils/retryconfig.md
-  - docs/sdks/pets/README.md
-  - USAGE.md
-  - .gitattributes
-  - src/hooks/hooks.ts
-  - src/hooks/types.ts
-  - src/hooks/index.ts
-  - CONTRIBUTING.md
+examples:
+  listPets:
+    speakeasy-default-list-pets:
+      responses:
+        "200":
+          application/json: []
+        default:
+          application/json: {"code": 767425, "message": "<value>"}
+  createPets:
+    speakeasy-default-create-pets:
+      requestBody:
+        application/json: {"id": 596804, "name": "<value>"}
+      responses:
+        default:
+          application/json: {"code": 589113, "message": "<value>"}
+  showPetById:
+    speakeasy-default-show-pet-by-id:
+      parameters:
+        path:
+          petId: "<id>"
+      responses:
+        "200":
+          application/json: {"id": 763078, "name": "<value>"}
+        default:
+          application/json: {"code": 743784, "message": "<value>"}

@@ -3,18 +3,18 @@
  */
 
 import { RyTsCore } from "../core.js";
-import { encodeJSON as encodeJSON$ } from "../lib/encodings.js";
-import * as m$ from "../lib/matchers.js";
-import * as schemas$ from "../lib/schemas.js";
+import { encodeJSON } from "../lib/encodings.js";
+import * as M from "../lib/matchers.js";
+import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
 import { pathToFunc } from "../lib/url.js";
 import * as components from "../models/components/index.js";
 import {
-    ConnectionError,
-    InvalidRequestError,
-    RequestAbortedError,
-    RequestTimeoutError,
-    UnexpectedClientError,
+  ConnectionError,
+  InvalidRequestError,
+  RequestAbortedError,
+  RequestTimeoutError,
+  UnexpectedClientError,
 } from "../models/errors/httpclienterrors.js";
 import { SDKError } from "../models/errors/sdkerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
@@ -25,91 +25,92 @@ import { Result } from "../types/fp.js";
  * Create a pet
  */
 export async function petsCreatePets(
-    client$: RyTsCore,
-    request: components.Pet,
-    options?: RequestOptions
+  client: RyTsCore,
+  request: components.Pet,
+  options?: RequestOptions,
 ): Promise<
-    Result<
-        operations.CreatePetsResponse,
-        | SDKError
-        | SDKValidationError
-        | UnexpectedClientError
-        | InvalidRequestError
-        | RequestAbortedError
-        | RequestTimeoutError
-        | ConnectionError
-    >
+  Result<
+    operations.CreatePetsResponse,
+    | SDKError
+    | SDKValidationError
+    | UnexpectedClientError
+    | InvalidRequestError
+    | RequestAbortedError
+    | RequestTimeoutError
+    | ConnectionError
+  >
 > {
-    const input$ = request;
+  const parsed = safeParse(
+    request,
+    (value) => components.Pet$outboundSchema.parse(value),
+    "Input validation failed",
+  );
+  if (!parsed.ok) {
+    return parsed;
+  }
+  const payload = parsed.value;
+  const body = encodeJSON("body", payload, { explode: true });
 
-    const parsed$ = schemas$.safeParse(
-        input$,
-        (value$) => components.Pet$outboundSchema.parse(value$),
-        "Input validation failed"
-    );
-    if (!parsed$.ok) {
-        return parsed$;
-    }
-    const payload$ = parsed$.value;
-    const body$ = encodeJSON$("body", payload$, { explode: true });
+  const path = pathToFunc("/pets")();
 
-    const path$ = pathToFunc("/pets")();
+  const headers = new Headers({
+    "Content-Type": "application/json",
+    Accept: "application/json",
+  });
 
-    const headers$ = new Headers({
-        "Content-Type": "application/json",
-        Accept: "application/json",
-    });
+  const context = {
+    operationID: "createPets",
+    oAuth2Scopes: [],
+    securitySource: null,
+  };
 
-    const context = { operationID: "createPets", oAuth2Scopes: [], securitySource: null };
+  const requestRes = client._createRequest(context, {
+    method: "POST",
+    path: path,
+    headers: headers,
+    body: body,
+    timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
+  }, options);
+  if (!requestRes.ok) {
+    return requestRes;
+  }
+  const req = requestRes.value;
 
-    const requestRes = client$.createRequest$(
-        context,
-        {
-            method: "POST",
-            path: path$,
-            headers: headers$,
-            body: body$,
-            timeoutMs: options?.timeoutMs || client$.options$.timeoutMs || -1,
-        },
-        options
-    );
-    if (!requestRes.ok) {
-        return requestRes;
-    }
-    const request$ = requestRes.value;
+  const doResult = await client._do(req, {
+    context,
+    errorCodes: ["4XX", "5XX"],
+    retryConfig: options?.retries
+      || client._options.retryConfig,
+    retryCodes: options?.retryCodes || ["429", "500", "502", "503", "504"],
+  });
+  if (!doResult.ok) {
+    return doResult;
+  }
+  const response = doResult.value;
 
-    const doResult = await client$.do$(request$, {
-        context,
-        errorCodes: ["4XX", "5XX"],
-        retryConfig: options?.retries || client$.options$.retryConfig,
-        retryCodes: options?.retryCodes || ["429", "500", "502", "503", "504"],
-    });
-    if (!doResult.ok) {
-        return doResult;
-    }
-    const response = doResult.value;
+  const responseFields = {
+    HttpMeta: { Response: response, Request: req },
+  };
 
-    const responseFields$ = {
-        HttpMeta: { Response: response, Request: request$ },
-    };
+  const [result] = await M.match<
+    operations.CreatePetsResponse,
+    | SDKError
+    | SDKValidationError
+    | UnexpectedClientError
+    | InvalidRequestError
+    | RequestAbortedError
+    | RequestTimeoutError
+    | ConnectionError
+  >(
+    M.nil(201, operations.CreatePetsResponse$inboundSchema),
+    M.fail(["4XX", "5XX"]),
+    M.json("default", operations.CreatePetsResponse$inboundSchema, {
+      key: "Error",
+    }),
+  )(response, req, { extraFields: responseFields });
+  if (!result.ok) {
+    return result;
+  }
 
-    const [result$] = await m$.match<
-        operations.CreatePetsResponse,
-        | SDKError
-        | SDKValidationError
-        | UnexpectedClientError
-        | InvalidRequestError
-        | RequestAbortedError
-        | RequestTimeoutError
-        | ConnectionError
-    >(
-        m$.nil(201, operations.CreatePetsResponse$inboundSchema),
-        m$.fail(["4XX", "5XX"]),
-        m$.json("default", operations.CreatePetsResponse$inboundSchema, { key: "Error" })
-    )(response, request$, { extraFields: responseFields$ });
-    if (!result$.ok) {
-        return result$;
-    }
-
-    return result$;
+  return result;
 }

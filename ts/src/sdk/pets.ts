@@ -11,33 +11,45 @@ import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
 
 export class Pets extends ClientSDK {
-    /**
-     * List all pets
-     */
-    async listPets(
-        limit?: number | undefined,
-        options?: RequestOptions
-    ): Promise<operations.ListPetsResponse> {
-        return unwrapAsync(petsListPets(this, limit, options));
-    }
+  /**
+   * List all pets
+   */
+  async listPets(
+    limit?: number | undefined,
+    options?: RequestOptions,
+  ): Promise<operations.ListPetsResponse> {
+    return unwrapAsync(petsListPets(
+      this,
+      limit,
+      options,
+    ));
+  }
 
-    /**
-     * Create a pet
-     */
-    async createPets(
-        request: components.Pet,
-        options?: RequestOptions
-    ): Promise<operations.CreatePetsResponse> {
-        return unwrapAsync(petsCreatePets(this, request, options));
-    }
+  /**
+   * Create a pet
+   */
+  async createPets(
+    request: components.Pet,
+    options?: RequestOptions,
+  ): Promise<operations.CreatePetsResponse> {
+    return unwrapAsync(petsCreatePets(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Info for a specific pet
-     */
-    async showPetById(
-        petId: string,
-        options?: RequestOptions
-    ): Promise<operations.ShowPetByIdResponse> {
-        return unwrapAsync(petsShowPetById(this, petId, options));
-    }
+  /**
+   * Info for a specific pet
+   */
+  async showPetById(
+    petId: string,
+    options?: RequestOptions,
+  ): Promise<operations.ShowPetByIdResponse> {
+    return unwrapAsync(petsShowPetById(
+      this,
+      petId,
+      options,
+    ));
+  }
 }

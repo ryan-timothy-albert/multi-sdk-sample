@@ -24,7 +24,7 @@ async function run() {
   const result = await ryTs.pets.listPets();
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -52,7 +52,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -73,10 +73,9 @@ run();
 
 ### Errors
 
-| Error Object    | Status Code     | Content Type    |
+| Error Type      | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 4xx-5xx         | */*             |
-
+| errors.SDKError | 4XX, 5XX        | \*/\*           |
 
 ## createPets
 
@@ -96,7 +95,7 @@ async function run() {
   });
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -116,7 +115,7 @@ const ryTs = new RyTsCore();
 
 async function run() {
   const res = await petsCreatePets(ryTs, {
-    id: 589113,
+    id: 596804,
     name: "<value>",
   });
 
@@ -127,7 +126,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -148,10 +147,9 @@ run();
 
 ### Errors
 
-| Error Object    | Status Code     | Content Type    |
+| Error Type      | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 4xx-5xx         | */*             |
-
+| errors.SDKError | 4XX, 5XX        | \*/\*           |
 
 ## showPetById
 
@@ -165,10 +163,10 @@ import { RyTs } from "ryan-test-1";
 const ryTs = new RyTs();
 
 async function run() {
-  const result = await ryTs.pets.showPetById("<value>");
+  const result = await ryTs.pets.showPetById("<id>");
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -187,7 +185,7 @@ import { petsShowPetById } from "ryan-test-1/funcs/petsShowPetById.js";
 const ryTs = new RyTsCore();
 
 async function run() {
-  const res = await petsShowPetById(ryTs, "<value>");
+  const res = await petsShowPetById(ryTs, "<id>");
 
   if (!res.ok) {
     throw res.error;
@@ -196,7 +194,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -217,6 +215,6 @@ run();
 
 ### Errors
 
-| Error Object    | Status Code     | Content Type    |
+| Error Type      | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 4xx-5xx         | */*             |
+| errors.SDKError | 4XX, 5XX        | \*/\*           |

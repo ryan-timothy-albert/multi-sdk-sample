@@ -6,8 +6,8 @@
 import { Pet } from "ryan-test-1/models/components";
 
 let value: Pet = {
-    id: 592845,
-    name: "<value>",
+  id: 715190,
+  name: "<value>",
 };
 ```
 
