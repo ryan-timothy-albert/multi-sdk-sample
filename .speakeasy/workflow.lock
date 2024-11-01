@@ -1,8 +1,8 @@
-speakeasyVersion: 1.421.0
+speakeasyVersion: 1.423.5
 sources:
     petstore:
         sourceNamespace: petstore
-        sourceRevisionDigest: sha256:5139f7eb35bd185e818a5cee58a68734ff027b5a2fa7c7e4bb5c1bff0ecaaf90
+        sourceRevisionDigest: sha256:3528c28c8274603c8d8411233e1224fe0bab306995a12d6f9f82d482058679de
         sourceBlobDigest: sha256:7c35756702030633a8d2ebb1d378d34f883126319b06edcd798ac7bb2fddb189
         tags:
             - latest
@@ -11,8 +11,8 @@ targets:
     first-target:
         source: petstore
         sourceNamespace: petstore
-        sourceRevisionDigest: sha256:6a996d4448a1cfaff5b5e81ec5b7599026c4eef7cd858867aad756131168440a
-        sourceBlobDigest: sha256:08ce70c4bc584c427d03c413e2fca26efe2f363bf8b80668cabf2915dc45af63
+        sourceRevisionDigest: sha256:3528c28c8274603c8d8411233e1224fe0bab306995a12d6f9f82d482058679de
+        sourceBlobDigest: sha256:7c35756702030633a8d2ebb1d378d34f883126319b06edcd798ac7bb2fddb189
     second-target:
         source: petstore
         sourceNamespace: petstore
@@ -37,6 +37,10 @@ workflow:
             target: go
             source: petstore
             output: go
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/ryan-local/ryan-telemetry/petstore-code-samples
+                blocking: false
         second-target:
             target: python
             source: petstore
@@ -44,6 +48,10 @@ workflow:
             publish:
                 pypi:
                     token: $pypi_token
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/ryan-local/ryan-telemetry/petstore-code-samples
+                blocking: false
         third-target:
             target: typescript
             source: petstore
@@ -51,3 +59,7 @@ workflow:
             publish:
                 npm:
                     token: $npm_token
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/ryan-local/ryan-telemetry/petstore-code-samples
+                blocking: false

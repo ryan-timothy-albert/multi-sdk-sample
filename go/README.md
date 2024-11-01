@@ -16,9 +16,28 @@ It has been generated successfully based on your OpenAPI spec. However, it is no
 - [ ] 🎁 Publish your SDK to package managers by [configuring automatic publishing](https://www.speakeasyapi.dev/docs/advanced-setup/publish-sdks)
 - [ ] ✨ When ready to productionize, delete this section from the README
 
+<!-- Start Summary [summary] -->
+## Summary
+
+
+<!-- End Summary [summary] -->
+
+<!-- Start Table of Contents [toc] -->
+## Table of Contents
+
+* [SDK Installation](#sdk-installation)
+* [SDK Example Usage](#sdk-example-usage)
+* [Available Resources and Operations](#available-resources-and-operations)
+* [Retries](#retries)
+* [Error Handling](#error-handling)
+* [Server Selection](#server-selection)
+* [Custom HTTP Client](#custom-http-client)
+<!-- End Table of Contents [toc] -->
+
 <!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
+To add the SDK as a dependency to your project:
 ```bash
 go get github.com/ryan-timothy-albert/multi-sdk-sample/go
 ```
@@ -40,9 +59,9 @@ import (
 
 func main() {
 	s := openapi.New()
-	var limit *int = openapi.Int(21453)
+
 	ctx := context.Background()
-	res, err := s.Pets.ListPets(ctx, limit)
+	res, err := s.Pets.ListPets(ctx, nil)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -57,21 +76,112 @@ func main() {
 <!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
 
+<details open>
+<summary>Available methods</summary>
+
 ### [Pets](docs/sdks/pets/README.md)
 
 * [ListPets](docs/sdks/pets/README.md#listpets) - List all pets
 * [CreatePets](docs/sdks/pets/README.md#createpets) - Create a pet
 * [ShowPetByID](docs/sdks/pets/README.md#showpetbyid) - Info for a specific pet
+
+
+</details>
 <!-- End Available Resources and Operations [operations] -->
+
+<!-- Start Retries [retries] -->
+## Retries
+
+Some of the endpoints in this SDK support retries. If you use the SDK without any configuration, it will fall back to the default retry strategy provided by the API. However, the default retry strategy can be overridden on a per-operation basis, or across the entire SDK.
+
+To change the default retry strategy for a single API call, simply provide a `retry.Config` object to the call by using the `WithRetries` option:
+```go
+package main
+
+import (
+	"context"
+	"log"
+	"models/operations"
+	openapi "openapi/v2"
+	"openapi/v2/retry"
+)
+
+func main() {
+	s := openapi.New()
+
+	ctx := context.Background()
+	res, err := s.Pets.ListPets(ctx, nil, operations.WithRetries(
+		retry.Config{
+			Strategy: "backoff",
+			Backoff: &retry.BackoffStrategy{
+				InitialInterval: 1,
+				MaxInterval:     50,
+				Exponent:        1.1,
+				MaxElapsedTime:  100,
+			},
+			RetryConnectionErrors: false,
+		}))
+	if err != nil {
+		log.Fatal(err)
+	}
+	if res.Pets != nil {
+		// handle response
+	}
+}
+
+```
+
+If you'd like to override the default retry strategy for all operations that support retries, you can use the `WithRetryConfig` option at SDK initialization:
+```go
+package main
+
+import (
+	"context"
+	"log"
+	openapi "openapi/v2"
+	"openapi/v2/retry"
+)
+
+func main() {
+	s := openapi.New(
+		openapi.WithRetryConfig(
+			retry.Config{
+				Strategy: "backoff",
+				Backoff: &retry.BackoffStrategy{
+					InitialInterval: 1,
+					MaxInterval:     50,
+					Exponent:        1.1,
+					MaxElapsedTime:  100,
+				},
+				RetryConnectionErrors: false,
+			}),
+	)
+
+	ctx := context.Background()
+	res, err := s.Pets.ListPets(ctx, nil)
+	if err != nil {
+		log.Fatal(err)
+	}
+	if res.Pets != nil {
+		// handle response
+	}
+}
+
+```
+<!-- End Retries [retries] -->
 
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
-Handling errors in this SDK should largely match your expectations.  All operations return a response object or an error, they will never return both.  When specified by the OpenAPI spec document, the SDK will return the appropriate subclass.
+Handling errors in this SDK should largely match your expectations. All operations return a response object or an error, they will never return both.
 
-| Error Object       | Status Code        | Content Type       |
+By Default, an API error will return `sdkerrors.SDKError`. When custom error responses are specified for an operation, the SDK may also return their associated error. You can refer to respective *Errors* tables in SDK docs for more details on possible error types for each operation.
+
+For example, the `ListPets` function may return the following errors:
+
+| Error Type         | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 4xx-5xx            | */*                |
+| sdkerrors.SDKError | 4XX, 5XX           | \*/\*              |
 
 ### Example
 
@@ -88,9 +198,9 @@ import (
 
 func main() {
 	s := openapi.New()
-	var limit *int = openapi.Int(21453)
+
 	ctx := context.Background()
-	res, err := s.Pets.ListPets(ctx, limit)
+	res, err := s.Pets.ListPets(ctx, nil)
 	if err != nil {
 
 		var e *sdkerrors.SDKError
@@ -130,9 +240,9 @@ func main() {
 	s := openapi.New(
 		openapi.WithServerIndex(0),
 	)
-	var limit *int = openapi.Int(21453)
+
 	ctx := context.Background()
-	res, err := s.Pets.ListPets(ctx, limit)
+	res, err := s.Pets.ListPets(ctx, nil)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -160,9 +270,9 @@ func main() {
 	s := openapi.New(
 		openapi.WithServerURL("http://petstore.swagger.io/v1"),
 	)
-	var limit *int = openapi.Int(21453)
+
 	ctx := context.Background()
-	res, err := s.Pets.ListPets(ctx, limit)
+	res, err := s.Pets.ListPets(ctx, nil)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -202,12 +312,6 @@ var (
 
 This can be a convenient way to configure timeouts, cookies, proxies, custom headers, and other low-level configuration.
 <!-- End Custom HTTP Client [http-client] -->
-
-<!-- Start Special Types [types] -->
-## Special Types
-
-
-<!-- End Special Types [types] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 
