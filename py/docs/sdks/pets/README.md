@@ -1,6 +1,8 @@
 # Pets
 (*pets*)
 
+## Overview
+
 ### Available Operations
 
 * [list_pets](#list_pets) - List all pets
@@ -19,7 +21,7 @@ import sdk
 s = sdk.SDK()
 
 
-res = s.pets.list_pets(limit=21453)
+res = s.pets.list_pets()
 
 if res.pets is not None:
     # handle response
@@ -33,15 +35,15 @@ if res.pets is not None:
 | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
 | `limit`                                        | *Optional[int]*                                | :heavy_minus_sign:                             | How many items to return at one time (max 100) |
 
-
 ### Response
 
 **[operations.ListPetsResponse](../../models/operations/listpetsresponse.md)**
+
 ### Errors
 
-| Error Object    | Status Code     | Content Type    |
+| Error Type      | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 4xx-5xx         | */*             |
+| errors.SDKError | 4XX, 5XX        | \*/\*           |
 
 ## create_pets
 
@@ -73,15 +75,15 @@ if res is not None:
 | ------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------ |
 | `request`                                        | [components.Pet](../../models/components/pet.md) | :heavy_check_mark:                               | The request object to use for the request.       |
 
-
 ### Response
 
 **[operations.CreatePetsResponse](../../models/operations/createpetsresponse.md)**
+
 ### Errors
 
-| Error Object    | Status Code     | Content Type    |
+| Error Type      | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 4xx-5xx         | */*             |
+| errors.SDKError | 4XX, 5XX        | \*/\*           |
 
 ## show_pet_by_id
 
@@ -95,7 +97,7 @@ import sdk
 s = sdk.SDK()
 
 
-res = s.pets.show_pet_by_id(pet_id='<value>')
+res = s.pets.show_pet_by_id(pet_id='<id>')
 
 if res.pet is not None:
     # handle response
@@ -109,12 +111,12 @@ if res.pet is not None:
 | ----------------------------- | ----------------------------- | ----------------------------- | ----------------------------- |
 | `pet_id`                      | *str*                         | :heavy_check_mark:            | The id of the pet to retrieve |
 
-
 ### Response
 
 **[operations.ShowPetByIDResponse](../../models/operations/showpetbyidresponse.md)**
+
 ### Errors
 
-| Error Object    | Status Code     | Content Type    |
+| Error Type      | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 4xx-5xx         | */*             |
+| errors.SDKError | 4XX, 5XX        | \*/\*           |

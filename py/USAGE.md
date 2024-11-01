@@ -5,7 +5,7 @@ import sdk
 s = sdk.SDK()
 
 
-res = s.pets.list_pets(limit=21453)
+res = s.pets.list_pets()
 
 if res.pets is not None:
     # handle response

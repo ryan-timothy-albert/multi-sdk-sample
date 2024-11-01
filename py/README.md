@@ -16,8 +16,27 @@ It has been generated successfully based on your OpenAPI spec. However, it is no
 - [ ] 🎁 Publish your SDK to package managers by [configuring automatic publishing](https://www.speakeasyapi.dev/docs/advanced-setup/publish-sdks)
 - [ ] ✨ When ready to productionize, delete this section from the README
 
+<!-- Start Summary [summary] -->
+## Summary
+
+
+<!-- End Summary [summary] -->
+
+<!-- Start Table of Contents [toc] -->
+## Table of Contents
+
+* [SDK Installation](#sdk-installation)
+* [SDK Example Usage](#sdk-example-usage)
+* [Available Resources and Operations](#available-resources-and-operations)
+* [Error Handling](#error-handling)
+* [Server Selection](#server-selection)
+* [Custom HTTP Client](#custom-http-client)
+<!-- End Table of Contents [toc] -->
+
 <!-- Start SDK Installation [installation] -->
 ## SDK Installation
+
+The SDK can be installed using the *pip* package manager, with dependencies and metadata stored in the `setup.py` file.
 
 ```bash
 pip install openapi
@@ -35,7 +54,7 @@ import sdk
 s = sdk.SDK()
 
 
-res = s.pets.list_pets(limit=21453)
+res = s.pets.list_pets()
 
 if res.pets is not None:
     # handle response
@@ -47,21 +66,38 @@ if res.pets is not None:
 <!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
 
+<details open>
+<summary>Available methods</summary>
+
 ### [pets](docs/sdks/pets/README.md)
 
 * [list_pets](docs/sdks/pets/README.md#list_pets) - List all pets
 * [create_pets](docs/sdks/pets/README.md#create_pets) - Create a pet
 * [show_pet_by_id](docs/sdks/pets/README.md#show_pet_by_id) - Info for a specific pet
+
+
+</details>
 <!-- End Available Resources and Operations [operations] -->
 
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
-Handling errors in this SDK should largely match your expectations.  All operations return a response object or raise an error.  If Error objects are specified in your OpenAPI Spec, the SDK will raise the appropriate Error type.
+Handling errors in this SDK should largely match your expectations. All operations return a response object or raise an exception.
 
-| Error Object    | Status Code     | Content Type    |
+By default, an API error will raise a errors.SDKError exception, which has the following properties:
+
+| Property        | Type             | Description           |
+|-----------------|------------------|-----------------------|
+| `.status_code`  | *int*            | The HTTP status code  |
+| `.message`      | *str*            | The error message     |
+| `.raw_response` | *httpx.Response* | The raw HTTP response |
+| `.body`         | *str*            | The response content  |
+
+When custom error responses are specified for an operation, the SDK may also raise their associated exception. You can refer to respective *Errors* tables in SDK docs for more details on possible exception types for each operation. For example, the `list_pets` method may raise the following exceptions:
+
+| Error Type      | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 4xx-5xx         | */*             |
+| errors.SDKError | 4XX, 5XX        | \*/\*           |
 
 ### Example
 
@@ -73,7 +109,7 @@ s = sdk.SDK()
 
 res = None
 try:
-    res = s.pets.list_pets(limit=21453)
+    res = s.pets.list_pets()
 
 except errors.SDKError as e:
     # handle exception
@@ -107,7 +143,7 @@ s = sdk.SDK(
 )
 
 
-res = s.pets.list_pets(limit=21453)
+res = s.pets.list_pets()
 
 if res.pets is not None:
     # handle response
@@ -127,7 +163,7 @@ s = sdk.SDK(
 )
 
 
-res = s.pets.list_pets(limit=21453)
+res = s.pets.list_pets()
 
 if res.pets is not None:
     # handle response

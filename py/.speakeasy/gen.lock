@@ -3,10 +3,10 @@ id: bec1a8ce-6d87-480a-87e4-4d5233eefa3b
 management:
   docChecksum: 1bdb7a6f8bf3995d4b40475228403253
   docVersion: 1.0.0
-  speakeasyVersion: 1.310.0
-  generationVersion: 2.347.4
-  releaseVersion: 0.0.10
-  configChecksum: 40c06cecd1f41423513ca6bccadeef75
+  speakeasyVersion: 1.423.5
+  generationVersion: 2.445.1
+  releaseVersion: 0.1.0
+  configChecksum: cd08249c5b4ad9b623de961af39ed00b
   repoURL: https://github.com/ryan-timothy-albert/multi-sdk-sample.git
   repoSubDirectory: py
   installationURL: https://github.com/ryan-timothy-albert/multi-sdk-sample.git#subdirectory=py
@@ -14,47 +14,74 @@ management:
 features:
   python:
     additionalDependencies: 0.1.0
-    core: 4.6.11
+    core: 4.8.14
     flattening: 2.81.1
     globalSecurityCallbacks: 0.1.0
     globalServerURLs: 2.82.2
     responseFormat: 0.1.0
     sdkHooks: 0.1.0
+    tests: 0.4.0
 generatedFiles:
-  - src/sdk/sdkconfiguration.py
-  - src/sdk/pets.py
-  - src/sdk/sdk.py
+  - .gitattributes
+  - CONTRIBUTING.md
+  - USAGE.md
+  - docs/models/components/error.md
+  - docs/models/components/httpmetadata.md
+  - docs/models/components/pet.md
+  - docs/models/operations/createpetsresponse.md
+  - docs/models/operations/listpetsrequest.md
+  - docs/models/operations/listpetsresponse.md
+  - docs/models/operations/showpetbyidrequest.md
+  - docs/models/operations/showpetbyidresponse.md
+  - docs/sdks/pets/README.md
+  - docs/sdks/sdk/README.md
   - py.typed
   - pylintrc
   - scripts/publish.sh
   - setup.py
   - src/sdk/__init__.py
+  - src/sdk/_hooks/__init__.py
+  - src/sdk/_hooks/sdkhooks.py
+  - src/sdk/_hooks/types.py
+  - src/sdk/models/__init__.py
+  - src/sdk/models/components/__init__.py
+  - src/sdk/models/components/error.py
+  - src/sdk/models/components/httpmetadata.py
+  - src/sdk/models/components/pet.py
+  - src/sdk/models/errors/__init__.py
+  - src/sdk/models/errors/sdkerror.py
+  - src/sdk/models/operations/__init__.py
+  - src/sdk/models/operations/createpets.py
+  - src/sdk/models/operations/listpets.py
+  - src/sdk/models/operations/showpetbyid.py
+  - src/sdk/pets.py
+  - src/sdk/sdk.py
+  - src/sdk/sdkconfiguration.py
   - src/sdk/utils/__init__.py
   - src/sdk/utils/retries.py
   - src/sdk/utils/utils.py
-  - src/sdk/models/errors/sdkerror.py
-  - src/sdk/models/operations/listpets.py
-  - src/sdk/models/operations/createpets.py
-  - src/sdk/models/operations/showpetbyid.py
-  - src/sdk/models/components/error.py
-  - src/sdk/models/components/pet.py
-  - src/sdk/models/components/httpmetadata.py
-  - src/sdk/models/__init__.py
-  - src/sdk/models/errors/__init__.py
-  - src/sdk/models/operations/__init__.py
-  - src/sdk/models/components/__init__.py
-  - docs/models/operations/listpetsrequest.md
-  - docs/models/operations/listpetsresponse.md
-  - docs/models/operations/createpetsresponse.md
-  - docs/models/operations/showpetbyidrequest.md
-  - docs/models/operations/showpetbyidresponse.md
-  - docs/models/components/error.md
-  - docs/models/components/pet.md
-  - docs/models/components/httpmetadata.md
-  - docs/sdks/sdk/README.md
-  - docs/sdks/pets/README.md
-  - USAGE.md
-  - .gitattributes
-  - src/sdk/_hooks/sdkhooks.py
-  - src/sdk/_hooks/types.py
-  - src/sdk/_hooks/__init__.py
+examples:
+  listPets:
+    speakeasy-default-list-pets:
+      responses:
+        "200":
+          application/json: []
+        default:
+          application/json: {"code": 767425, "message": "<value>"}
+  createPets:
+    speakeasy-default-create-pets:
+      requestBody:
+        application/json: {"id": 596804, "name": "<value>"}
+      responses:
+        default:
+          application/json: {"code": 589113, "message": "<value>"}
+  showPetById:
+    speakeasy-default-show-pet-by-id:
+      parameters:
+        path:
+          petId: "<id>"
+      responses:
+        "200":
+          application/json: {"id": 763078, "name": "<value>"}
+        default:
+          application/json: {"code": 743784, "message": "<value>"}
