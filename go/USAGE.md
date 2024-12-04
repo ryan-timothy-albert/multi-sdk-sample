@@ -10,9 +10,9 @@ import (
 
 func main() {
 	s := openapi.New()
-	var limit *int = openapi.Int(21453)
+
 	ctx := context.Background()
-	res, err := s.Pets.ListPets(ctx, limit)
+	res, err := s.Pets.ListPets(ctx, nil)
 	if err != nil {
 		log.Fatal(err)
 	}

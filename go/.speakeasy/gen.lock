@@ -3,34 +3,51 @@ id: aa3cba97-ebdd-4d31-b4e4-c95d045e0ba8
 management:
   docChecksum: 1bdb7a6f8bf3995d4b40475228403253
   docVersion: 1.0.0
-  speakeasyVersion: 1.315.2
-  generationVersion: 2.352.0
-  releaseVersion: 2.0.0-alpha.2
-  configChecksum: 2ecc9c6b055e364490128ff49d89a041
+  speakeasyVersion: 1.451.1
+  generationVersion: 2.470.1
+  releaseVersion: 2.0.0-alpha.3
+  configChecksum: 5b6f553bea84d29456f6e1b237051033
   repoURL: https://github.com/ryan-timothy-albert/multi-sdk-sample.git
   repoSubDirectory: go
   installationURL: https://github.com/ryan-timothy-albert/multi-sdk-sample/go
 features:
   go:
     additionalDependencies: 0.1.0
-    core: 3.4.14
+    core: 3.5.17
+    defaultEnabledRetries: 0.2.0
+    envVarSecurityUsage: 0.3.2
     flattening: 2.81.1
     globalSecurityCallbacks: 0.1.0
     globalServerURLs: 2.82.2
     intellisenseMarkdownSupport: 0.1.0
     responseFormat: 0.1.2
+    retries: 2.83.1
     sdkHooks: 0.1.0
 generatedFiles:
-  - pets.go
-  - sdk.go
+  - .gitattributes
+  - /models/components/error.go
+  - /models/components/httpmetadata.go
+  - /models/components/pet.go
+  - /models/operations/createpets.go
+  - /models/operations/listpets.go
+  - /models/operations/showpetbyid.go
+  - CONTRIBUTING.md
+  - USAGE.md
+  - docs/models/components/error.md
+  - docs/models/components/httpmetadata.md
+  - docs/models/components/pet.md
+  - docs/models/operations/createpetsresponse.md
+  - docs/models/operations/listpetsrequest.md
+  - docs/models/operations/listpetsresponse.md
+  - docs/models/operations/option.md
+  - docs/models/operations/showpetbyidrequest.md
+  - docs/models/operations/showpetbyidresponse.md
+  - docs/sdks/pets/README.md
+  - docs/sdks/sdk/README.md
   - go.mod
-  - models/sdkerrors/sdkerror.go
-  - types/bigint.go
-  - types/date.go
-  - types/datetime.go
-  - types/decimal.go
-  - types/pointers.go
+  - internal/hooks/hooks.go
   - internal/utils/contenttype.go
+  - internal/utils/env.go
   - internal/utils/form.go
   - internal/utils/headers.go
   - internal/utils/json.go
@@ -40,22 +57,39 @@ generatedFiles:
   - internal/utils/retries.go
   - internal/utils/security.go
   - internal/utils/utils.go
-  - /models/operations/listpets.go
-  - /models/operations/createpets.go
-  - /models/operations/showpetbyid.go
-  - /models/components/error.go
-  - /models/components/pet.go
-  - /models/components/httpmetadata.go
-  - docs/models/operations/listpetsrequest.md
-  - docs/models/operations/listpetsresponse.md
-  - docs/models/operations/createpetsresponse.md
-  - docs/models/operations/showpetbyidrequest.md
-  - docs/models/operations/showpetbyidresponse.md
-  - docs/models/components/error.md
-  - docs/models/components/pet.md
-  - docs/models/components/httpmetadata.md
-  - docs/sdks/sdk/README.md
-  - docs/sdks/pets/README.md
-  - USAGE.md
-  - .gitattributes
-  - internal/hooks/hooks.go
+  - models/operations/options.go
+  - models/sdkerrors/sdkerror.go
+  - pets.go
+  - retry/config.go
+  - sdk.go
+  - types/bigint.go
+  - types/date.go
+  - types/datetime.go
+  - types/decimal.go
+  - types/pointers.go
+examples:
+  listPets:
+    speakeasy-default-list-pets:
+      responses:
+        "200":
+          application/json: []
+        default:
+          application/json: {"code": 767425, "message": "<value>"}
+  createPets:
+    speakeasy-default-create-pets:
+      requestBody:
+        application/json: {"id": 596804, "name": "<value>"}
+      responses:
+        default:
+          application/json: {"code": 589113, "message": "<value>"}
+  showPetById:
+    speakeasy-default-show-pet-by-id:
+      parameters:
+        path:
+          petId: "<id>"
+      responses:
+        "200":
+          application/json: {"id": 763078, "name": "<value>"}
+        default:
+          application/json: {"code": 743784, "message": "<value>"}
+generatedTests: {}

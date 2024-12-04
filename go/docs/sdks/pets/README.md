@@ -1,6 +1,8 @@
 # Pets
 (*Pets*)
 
+## Overview
+
 ### Available Operations
 
 * [ListPets](#listpets) - List all pets
@@ -24,9 +26,9 @@ import(
 
 func main() {
     s := openapi.New()
-    var limit *int = openapi.Int(21453)
+
     ctx := context.Background()
-    res, err := s.Pets.ListPets(ctx, limit)
+    res, err := s.Pets.ListPets(ctx, nil)
     if err != nil {
         log.Fatal(err)
     }
@@ -38,18 +40,21 @@ func main() {
 
 ### Parameters
 
-| Parameter                                             | Type                                                  | Required                                              | Description                                           |
-| ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
-| `ctx`                                                 | [context.Context](https://pkg.go.dev/context#Context) | :heavy_check_mark:                                    | The context to use for the request.                   |
-| `limit`                                               | **int*                                                | :heavy_minus_sign:                                    | How many items to return at one time (max 100)        |
-
+| Parameter                                                | Type                                                     | Required                                                 | Description                                              |
+| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
+| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
+| `limit`                                                  | **int*                                                   | :heavy_minus_sign:                                       | How many items to return at one time (max 100)           |
+| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
 
 ### Response
 
 **[*operations.ListPetsResponse](../../models/operations/listpetsresponse.md), error**
-| Error Object       | Status Code        | Content Type       |
+
+### Errors
+
+| Error Type         | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 4xx-5xx            | */*                |
+| sdkerrors.SDKError | 4XX, 5XX           | \*/\*              |
 
 ## CreatePets
 
@@ -69,12 +74,12 @@ import(
 
 func main() {
     s := openapi.New()
-    request := components.Pet{
+
+    ctx := context.Background()
+    res, err := s.Pets.CreatePets(ctx, components.Pet{
         ID: 596804,
         Name: "<value>",
-    }
-    ctx := context.Background()
-    res, err := s.Pets.CreatePets(ctx, request)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -86,18 +91,21 @@ func main() {
 
 ### Parameters
 
-| Parameter                                             | Type                                                  | Required                                              | Description                                           |
-| ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
-| `ctx`                                                 | [context.Context](https://pkg.go.dev/context#Context) | :heavy_check_mark:                                    | The context to use for the request.                   |
-| `request`                                             | [components.Pet](../../models/components/pet.md)      | :heavy_check_mark:                                    | The request object to use for the request.            |
-
+| Parameter                                                | Type                                                     | Required                                                 | Description                                              |
+| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
+| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
+| `request`                                                | [components.Pet](../../models/components/pet.md)         | :heavy_check_mark:                                       | The request object to use for the request.               |
+| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
 
 ### Response
 
 **[*operations.CreatePetsResponse](../../models/operations/createpetsresponse.md), error**
-| Error Object       | Status Code        | Content Type       |
+
+### Errors
+
+| Error Type         | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 4xx-5xx            | */*                |
+| sdkerrors.SDKError | 4XX, 5XX           | \*/\*              |
 
 ## ShowPetByID
 
@@ -116,9 +124,9 @@ import(
 
 func main() {
     s := openapi.New()
-    var petID string = "<value>"
+
     ctx := context.Background()
-    res, err := s.Pets.ShowPetByID(ctx, petID)
+    res, err := s.Pets.ShowPetByID(ctx, "<id>")
     if err != nil {
         log.Fatal(err)
     }
@@ -130,15 +138,18 @@ func main() {
 
 ### Parameters
 
-| Parameter                                             | Type                                                  | Required                                              | Description                                           |
-| ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
-| `ctx`                                                 | [context.Context](https://pkg.go.dev/context#Context) | :heavy_check_mark:                                    | The context to use for the request.                   |
-| `petID`                                               | *string*                                              | :heavy_check_mark:                                    | The id of the pet to retrieve                         |
-
+| Parameter                                                | Type                                                     | Required                                                 | Description                                              |
+| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
+| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
+| `petID`                                                  | *string*                                                 | :heavy_check_mark:                                       | The id of the pet to retrieve                            |
+| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
 
 ### Response
 
 **[*operations.ShowPetByIDResponse](../../models/operations/showpetbyidresponse.md), error**
-| Error Object       | Status Code        | Content Type       |
+
+### Errors
+
+| Error Type         | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 4xx-5xx            | */*                |
+| sdkerrors.SDKError | 4XX, 5XX           | \*/\*              |
