@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
 import * as components from "../components/index.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CreatePetsResponse = {
   httpMeta: components.HTTPMetadata;
@@ -61,4 +64,22 @@ export namespace CreatePetsResponse$ {
   export const outboundSchema = CreatePetsResponse$outboundSchema;
   /** @deprecated use `CreatePetsResponse$Outbound` instead. */
   export type Outbound = CreatePetsResponse$Outbound;
+}
+
+export function createPetsResponseToJSON(
+  createPetsResponse: CreatePetsResponse,
+): string {
+  return JSON.stringify(
+    CreatePetsResponse$outboundSchema.parse(createPetsResponse),
+  );
+}
+
+export function createPetsResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<CreatePetsResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreatePetsResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreatePetsResponse' from JSON`,
+  );
 }

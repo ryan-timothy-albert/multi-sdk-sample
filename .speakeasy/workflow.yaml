@@ -11,6 +11,10 @@ targets:
         target: go
         source: petstore
         output: go
+        codeSamples:
+            registry:
+                location: registry.speakeasyapi.dev/ryan-local/ryan-telemetry/petstore-go-code-samples
+            blocking: false
     second-target:
         target: python
         source: petstore
@@ -18,6 +22,10 @@ targets:
         publish:
             pypi:
                 token: $pypi_token
+        codeSamples:
+            registry:
+                location: registry.speakeasyapi.dev/ryan-local/ryan-telemetry/petstore-python-code-samples
+            blocking: false
     third-target:
         target: typescript
         source: petstore
@@ -25,3 +33,7 @@ targets:
         publish:
             npm:
                 token: $npm_token
+        codeSamples:
+            registry:
+                location: registry.speakeasyapi.dev/ryan-local/ryan-telemetry/petstore-typescript-code-samples
+            blocking: false

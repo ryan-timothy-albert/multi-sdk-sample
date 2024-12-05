@@ -1,12 +1,13 @@
-speakeasyVersion: 1.421.0
+speakeasyVersion: 1.451.5
 sources:
     petstore:
         sourceNamespace: petstore
-        sourceRevisionDigest: sha256:5139f7eb35bd185e818a5cee58a68734ff027b5a2fa7c7e4bb5c1bff0ecaaf90
-        sourceBlobDigest: sha256:7c35756702030633a8d2ebb1d378d34f883126319b06edcd798ac7bb2fddb189
+        sourceRevisionDigest: sha256:752afa452517375e73e296bb590269216e0b102d79d5443ae7d2d33cdb9f49f9
+        sourceBlobDigest: sha256:012d4be23953adcc7552fbaf9a012f9f2ce1acb929189304bea43cccd9e8e681
         tags:
             - latest
-            - main
+            - speakeasy-sdk-regen-1733358209
+            - 1.0.0
 targets:
     first-target:
         source: petstore
@@ -21,15 +22,17 @@ targets:
     third-target:
         source: petstore
         sourceNamespace: petstore
-        sourceRevisionDigest: sha256:5139f7eb35bd185e818a5cee58a68734ff027b5a2fa7c7e4bb5c1bff0ecaaf90
-        sourceBlobDigest: sha256:7c35756702030633a8d2ebb1d378d34f883126319b06edcd798ac7bb2fddb189
+        sourceRevisionDigest: sha256:752afa452517375e73e296bb590269216e0b102d79d5443ae7d2d33cdb9f49f9
+        sourceBlobDigest: sha256:012d4be23953adcc7552fbaf9a012f9f2ce1acb929189304bea43cccd9e8e681
+        codeSamplesNamespace: petstore-typescript-code-samples
+        codeSamplesRevisionDigest: sha256:f39c6ccfc9c275e2e3ec839c785f0bf458cd49cfcda84632d28847db7c3c2e7d
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
     sources:
         petstore:
             inputs:
-                - location: https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/examples/v3.0/petstore.yaml
+                - location: https://raw.githubusercontent.com/OAI/OpenAPI-Specification/refs/heads/main/tests/v3.0/pass/petstore.yaml
             registry:
                 location: registry.speakeasyapi.dev/ryan-local/ryan-telemetry/petstore
     targets:
@@ -37,6 +40,10 @@ workflow:
             target: go
             source: petstore
             output: go
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/ryan-local/ryan-telemetry/petstore-go-code-samples
+                blocking: false
         second-target:
             target: python
             source: petstore
@@ -44,6 +51,10 @@ workflow:
             publish:
                 pypi:
                     token: $pypi_token
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/ryan-local/ryan-telemetry/petstore-python-code-samples
+                blocking: false
         third-target:
             target: typescript
             source: petstore
@@ -51,3 +62,7 @@ workflow:
             publish:
                 npm:
                     token: $npm_token
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/ryan-local/ryan-telemetry/petstore-typescript-code-samples
+                blocking: false
