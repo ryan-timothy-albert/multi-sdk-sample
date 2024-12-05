@@ -1,7 +1,5 @@
 # SDK
 
-
 ## Overview
 
 ### Available Operations
-
