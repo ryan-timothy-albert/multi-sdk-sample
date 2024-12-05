@@ -2,11 +2,11 @@ speakeasyVersion: 1.451.5
 sources:
     petstore:
         sourceNamespace: petstore
-        sourceRevisionDigest: sha256:752afa452517375e73e296bb590269216e0b102d79d5443ae7d2d33cdb9f49f9
+        sourceRevisionDigest: sha256:04dceb84d718c669005ce0085dfbb0e1cc6e947992562d3aed2684354d003408
         sourceBlobDigest: sha256:012d4be23953adcc7552fbaf9a012f9f2ce1acb929189304bea43cccd9e8e681
         tags:
             - latest
-            - speakeasy-sdk-regen-1733358203
+            - speakeasy-sdk-regen-1733358367
             - 1.0.0
 targets:
     first-target:
@@ -17,10 +17,10 @@ targets:
     second-target:
         source: petstore
         sourceNamespace: petstore
-        sourceRevisionDigest: sha256:752afa452517375e73e296bb590269216e0b102d79d5443ae7d2d33cdb9f49f9
+        sourceRevisionDigest: sha256:04dceb84d718c669005ce0085dfbb0e1cc6e947992562d3aed2684354d003408
         sourceBlobDigest: sha256:012d4be23953adcc7552fbaf9a012f9f2ce1acb929189304bea43cccd9e8e681
         codeSamplesNamespace: petstore-python-code-samples
-        codeSamplesRevisionDigest: sha256:ee64f3165374a613901271d4d8db54f94b6d77913ef140914b7c96a06f4c75a6
+        codeSamplesRevisionDigest: sha256:f40b37c9f09702c0b5f6398b3ecce6f6c423591361fe22c3133dffc747aec7c7
     third-target:
         source: petstore
         sourceNamespace: petstore
