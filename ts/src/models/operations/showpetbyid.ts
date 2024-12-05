@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
 import * as components from "../components/index.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ShowPetByIdRequest = {
   /**
@@ -61,6 +64,24 @@ export namespace ShowPetByIdRequest$ {
   export type Outbound = ShowPetByIdRequest$Outbound;
 }
 
+export function showPetByIdRequestToJSON(
+  showPetByIdRequest: ShowPetByIdRequest,
+): string {
+  return JSON.stringify(
+    ShowPetByIdRequest$outboundSchema.parse(showPetByIdRequest),
+  );
+}
+
+export function showPetByIdRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<ShowPetByIdRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ShowPetByIdRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ShowPetByIdRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const ShowPetByIdResponse$inboundSchema: z.ZodType<
   ShowPetByIdResponse,
@@ -113,4 +134,22 @@ export namespace ShowPetByIdResponse$ {
   export const outboundSchema = ShowPetByIdResponse$outboundSchema;
   /** @deprecated use `ShowPetByIdResponse$Outbound` instead. */
   export type Outbound = ShowPetByIdResponse$Outbound;
+}
+
+export function showPetByIdResponseToJSON(
+  showPetByIdResponse: ShowPetByIdResponse,
+): string {
+  return JSON.stringify(
+    ShowPetByIdResponse$outboundSchema.parse(showPetByIdResponse),
+  );
+}
+
+export function showPetByIdResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<ShowPetByIdResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ShowPetByIdResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ShowPetByIdResponse' from JSON`,
+  );
 }
